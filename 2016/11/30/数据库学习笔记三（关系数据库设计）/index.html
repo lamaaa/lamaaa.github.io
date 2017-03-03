@@ -1,0 +1,878 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="数据库学习笔记," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="未完的梦" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="函数依赖：设R（U）是一个关系模型、X、Y为属性U全集的子集、若对于R（U）中任意一个可能的关系r中、不可能存在两个元组在X上的属性相等、而在Y属性上不等的情况、则称“X函数决定Y”或称“Y函数依赖X函数”。记作：X-&amp;gt;Y。自己理解：关系模型中若有两个属性X、Y、当X的值一样时、不可能出现两个相同的Y的值、则说明X能决定Y、Y依赖于X。
+完全依赖：X-&amp;gt;Y、并且X的任何真子集都不能实">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库学习笔记三（关系数据库设计）">
+<meta property="og:url" content="http://yoursite.com/2016/11/30/数据库学习笔记三（关系数据库设计）/index.html">
+<meta property="og:site_name" content="未完的梦">
+<meta property="og:description" content="函数依赖：设R（U）是一个关系模型、X、Y为属性U全集的子集、若对于R（U）中任意一个可能的关系r中、不可能存在两个元组在X上的属性相等、而在Y属性上不等的情况、则称“X函数决定Y”或称“Y函数依赖X函数”。记作：X-&amp;gt;Y。自己理解：关系模型中若有两个属性X、Y、当X的值一样时、不可能出现两个相同的Y的值、则说明X能决定Y、Y依赖于X。
+完全依赖：X-&amp;gt;Y、并且X的任何真子集都不能实">
+<meta property="og:updated_time" content="2016-12-01T08:38:15.682Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据库学习笔记三（关系数据库设计）">
+<meta name="twitter:description" content="函数依赖：设R（U）是一个关系模型、X、Y为属性U全集的子集、若对于R（U）中任意一个可能的关系r中、不可能存在两个元组在X上的属性相等、而在Y属性上不等的情况、则称“X函数决定Y”或称“Y函数依赖X函数”。记作：X-&amp;gt;Y。自己理解：关系模型中若有两个属性X、Y、当X的值一样时、不可能出现两个相同的Y的值、则说明X能决定Y、Y依赖于X。
+完全依赖：X-&amp;gt;Y、并且X的任何真子集都不能实">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/11/30/数据库学习笔记三（关系数据库设计）/"/>
+
+
+
+
+
+  <title> 数据库学习笔记三（关系数据库设计） | 未完的梦 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?78ddd4fbb114a78906f5428ec6ef7cc4";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">未完的梦</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', '27eUggKetbKto6zXroKM','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/30/数据库学习笔记三（关系数据库设计）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lam">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="未完的梦">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                数据库学习笔记三（关系数据库设计）
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-30T09:25:21+08:00">
+                2016-11-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Technology/" itemprop="url" rel="index">
+                    <span itemprop="name">Technology</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Technology/Database/" itemprop="url" rel="index">
+                    <span itemprop="name">Database</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/11/30/数据库学习笔记三（关系数据库设计）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/30/数据库学习笔记三（关系数据库设计）/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ol>
+<li><strong>函数依赖</strong>：设R（U）是一个关系模型、X、Y为属性U全集的子集、若对于R（U）中任意一个可能的关系r中、不可能存在两个元组在X上的属性相等、而在Y属性上不等的情况、则称“X函数决定Y”或称“Y函数依赖X函数”。记作：X-&gt;Y。<br>自己理解：关系模型中若有两个属性X、Y、当X的值一样时、不可能出现两个相同的Y的值、则说明X能决定Y、Y依赖于X。<ul>
+<li>完全依赖：X-&gt;Y、并且X的任何真子集都不能实现X(真)-&gt;Y。</li>
+<li>部分函数依赖：X-&gt;Y、并且X存在真子集实现X(真)-&gt;Y。</li>
+<li>传递函数依赖：R(u)，X-&gt;Y、Y不属于X，Y!-&gt;X，Y-&gt;Z则成Z对X传递函数依赖</li>
+<li>平凡非平凡函数依赖：X-&gt;Y(Y属于X)则称平凡函数依赖、否则称非平凡函数依赖。</li>
+</ul>
+</li>
+<li>在关系模型中，我们将属性不具有任何子结构这个思想形式化。如果该域的元素被认为是不可分的单元，那么这个域就是<strong>原子的</strong>。如果R的所有属性的域都是原子的，我们称R属于<strong>第一范式（First Normal Form，1NF）</strong></li>
+<li>一般地，如果β⊆ α，则形如α-&gt;β的函数依赖是<strong>平凡的</strong>，其中，α，β表示属性集。</li>
+<li>我们用F<sup>+</sup>符号来表示F集合的<strong>闭包</strong>，也就是能够从给定F集合推导出的所有函数依赖的集合。例如：<br>f={a-&gt;b,b-&gt;c,a-&gt;d,e-&gt;f}<br>由a可直接得到b和d，间接得到c，则a的闭包就是{a,b,c,d}</li>
+<li>我们能搭到的比较满意的范式之一是<strong>Boyce-Codd范式（Boyce-Codd Normal Form，BCNF）</strong>。它消除所有基于函数依赖能够发现的冗余。具有函数依赖集F的关系模式R属于BCNF的条件是，对于F<sup>+</sup>中所有形如α-&gt;β的函数依赖（其中α⊆ R且β⊆ R），下面至少有一项成立：<ul>
+<li>α-&gt;β是平凡的函数依赖（即，β⊆ α）</li>
+<li>α是模式R的一个超码</li>
+</ul>
+</li>
+<li>分解不属于BCNF的模式的一般规则。设R为不属于BCNF的一个模式。则至少存在一个非平凡的函数依赖α-&gt;β，其中α不是R的超码。我们在设计中用以下两个模式取代R：</li>
+</ol>
+<ul>
+<li>（α∪β）</li>
+<li>（R-（β-α））<br>当我们分解不属于BCNF的模式时，产生的模式中可能有一个或多个不属于BCNF。在这种情况下需要进一步分解，其最终结果是一个BCNF模式集合。</li>
+</ul>
+<ol>
+<li>具有函数依赖集F的关系模式R属于<strong>第三范式（third normal form）</strong>的条件是：对于F<sup>+</sup>中所有形如α-&gt;β的函数依赖（其中α⊆ R且β⊆ R），下面至少有一项成立：<ul>
+<li>α-&gt;β是平凡的函数依赖（即，β⊆ α）</li>
+<li>α是模式R的一个超码</li>
+<li>B - α中的每个属性A都包含于R的一个候选码中。</li>
+</ul>
+</li>
+<li>给定关系模式r（R），如果r（R）的每一个满足F的实例也满足f，则R上的函数依赖被r上的函数依赖集<strong>逻辑蕴涵（logically implay）</strong><br>假设我们给定关系模式r（A,B,C,G,H,I）及函数依赖集：<br>A-&gt;B<br>A-&gt;C<br>CG-&gt;H<br>CG-&gt;I<br>B-&gt;H<br>那么函数依赖<br>A-&gt;H<br>被逻辑蕴涵。<a id="more"></a></li>
+<li><strong>Armstrong公理：</strong><ul>
+<li><strong>自反律（reflexivity rule）</strong>。若α为一属性集且β⊆ α，则α-&gt;β成立</li>
+<li><strong>增补律（augmentation rule）</strong>。若α-&gt;β成立且γ为一属性集，则γα-&gt;γβ成立。</li>
+<li><strong>传递律（transitivity rule）</strong>。若α-&gt;β和β-&gt;γ成立，则α-&gt;γ成立。</li>
+</ul>
+</li>
+<li>虽然Armstrong公理是完备的，但是直接用它们计算会很麻烦，于是制定出一些规则。<ul>
+<li><strong>合并律（union rule）</strong>。若α-&gt;β和α-&gt;γ成立，则α-&gt;βγ成立</li>
+<li><strong>分解律（decomposition rule）</strong>。若α-&gt;βγ成立，则α-&gt;β和α-&gt;γ成立</li>
+<li><strong>伪传递律（pseudotransitivity rule）</strong>。若α-&gt;β和γβ-&gt;δ成立，则αγ-&gt;δ成立</li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据库学习笔记/" rel="tag"># 数据库学习笔记</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/27/数据库学习笔记二/" rel="next" title="数据库学习笔记二（数据库设计与E-R模型）">
+                <i class="fa fa-chevron-left"></i> 数据库学习笔记二（数据库设计与E-R模型）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/05/队列/" rel="prev" title="队列">
+                队列 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/30/数据库学习笔记三（关系数据库设计）/"
+           data-title="数据库学习笔记三（关系数据库设计）" data-url="http://yoursite.com/2016/11/30/数据库学习笔记三（关系数据库设计）/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Lam" />
+          <p class="site-author-name" itemprop="name">Lam</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lamaaa" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/linhaoyang0" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://facebook.com/linhaoyang0" target="_blank" title="Facebook">
+                  
+                    <i class="fa fa-fw fa-facebook"></i>
+                  
+                  Facebook
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/Haoyang_Lam" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lam</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"lamaaa"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

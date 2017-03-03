@@ -1,0 +1,876 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="C++ Primer 笔记," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="未完的梦" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="1.初始化和constconst类型的对象主要的限制就是不能改变其内容的操作。在不改变const对象的操作中还有一种是初始化，如果利用一个对象去初始化另外一个对象，则它们是不是const都无关紧要。当以编译时初始化的方式定义一个const对象时，编译器将在编译过程中把用到该变量的地方都替换成对应的值。默认情况下，const对象被设定为仅在文件内有效。当多个文件中出现了同名的const变量时，其实等">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第二章 2.4 const限定符">
+<meta property="og:url" content="http://yoursite.com/2015/07/30/第二章-2-4-const限定符/index.html">
+<meta property="og:site_name" content="未完的梦">
+<meta property="og:description" content="1.初始化和constconst类型的对象主要的限制就是不能改变其内容的操作。在不改变const对象的操作中还有一种是初始化，如果利用一个对象去初始化另外一个对象，则它们是不是const都无关紧要。当以编译时初始化的方式定义一个const对象时，编译器将在编译过程中把用到该变量的地方都替换成对应的值。默认情况下，const对象被设定为仅在文件内有效。当多个文件中出现了同名的const变量时，其实等">
+<meta property="og:updated_time" content="2016-08-27T07:27:30.912Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第二章 2.4 const限定符">
+<meta name="twitter:description" content="1.初始化和constconst类型的对象主要的限制就是不能改变其内容的操作。在不改变const对象的操作中还有一种是初始化，如果利用一个对象去初始化另外一个对象，则它们是不是const都无关紧要。当以编译时初始化的方式定义一个const对象时，编译器将在编译过程中把用到该变量的地方都替换成对应的值。默认情况下，const对象被设定为仅在文件内有效。当多个文件中出现了同名的const变量时，其实等">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/07/30/第二章-2-4-const限定符/"/>
+
+
+
+
+
+  <title> 第二章 2.4 const限定符 | 未完的梦 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?78ddd4fbb114a78906f5428ec6ef7cc4";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">未完的梦</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', '27eUggKetbKto6zXroKM','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/07/30/第二章-2-4-const限定符/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lam">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="未完的梦">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                第二章 2.4 const限定符
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-07-30T14:49:29+08:00">
+                2015-07-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Technology/" itemprop="url" rel="index">
+                    <span itemprop="name">Technology</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Technology/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/07/30/第二章-2-4-const限定符/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/30/第二章-2-4-const限定符/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="1-初始化和const"><a href="#1-初始化和const" class="headerlink" title="1.初始化和const"></a>1.初始化和const</h3><p>const类型的对象主要的限制就是不能改变其内容的操作。在不改变const对象的操作中还有一种是初始化，如果利用一个对象去初始化另外一个对象，则它们是不是const都无关紧要。当以编译时初始化的方式定义一个const对象时，编译器将在编译过程中把用到该变量的地方都替换成对应的值。默认情况下，const对象被设定为仅在文件内有效。当多个文件中出现了同名的const变量时，其实等同于在不同文件中分别定义了独立的变量。但是有时候我们又需要在文件间共享的const变量，他的初始值不是一个常量表达式。解决办法就是无论是声明还是定义都添加extern关键字就行了，这样只需定义一次就行了。</p>
+<h3 id="2-const的引用"><a href="#2-const的引用" class="headerlink" title="2.const的引用"></a>2.const的引用</h3><p>可以把引用绑定到const对象上，就像绑定到其他对象上一样，我们称之为<strong>对常量的引用</strong>。与普通引用不同的是，对常量的引用不能被用作修改它所绑定的对象。<br><a id="more"></a></p>
+<h3 id="3-初始化和对const的引用"><a href="#3-初始化和对const的引用" class="headerlink" title="3.初始化和对const的引用"></a>3.初始化和对const的引用</h3><p>之前说引用的类型必须与其所引用对象的类型一致，<em>但是有两个例外。第一种例外情况就是在初始化常量引用时允许用任意表达式作为初始值，只要该表达式的结果能转换成引用的类型即可。尤其，允许为一个常量引用绑定非常量的对象、字面值，甚至是一个表达式：</em></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> i = <span class="number">42</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> &amp;r1 = i;		<span class="comment">//允许将const int&amp;绑定到一个普通int对象上</span></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> &amp;r2 = <span class="number">42</span>;		<span class="comment">//正确：r1是一个常量引用</span></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> &amp;r3 = r1 * <span class="number">2</span>;	<span class="comment">//正确：r2是一个常量引用</span></div><div class="line"><span class="keyword">int</span> &amp;r4 = r1 * <span class="number">2</span>;		<span class="comment">//正确：r4是一个普通的非常量引用</span></div></pre></td></tr></table></figure>
+<p>必须认识到，常量引用仅对引用可参与的操作做出了限定，对于引用的对象本身是不是一个常量未作限定。因为对象本身也可能是个非常量，所以允许通过其他途径改变它的值。</p>
+<h3 id="4-指针和const"><a href="#4-指针和const" class="headerlink" title="4.指针和const"></a>4.指针和const</h3><p>与引用一样，也可以令指针指向常量或非常量。类似于常量引用，<strong>指向常量的指针</strong>不能用于改变其所指对象的值。要想存放常量对象的地址，只能使用指向常量的指针。<br>之前说到指针的类型必须与其所指对象的类型一致，<em>但是有两个例外，第一种例外情况是允许令一个指向常量的指针指向一个非常量对象。</em>和常量引用一样，指向常量的指针也没有规定其所指的对象必须是一个常量。所谓指向常量的指针仅仅要求不能通过该指针改变对象的值，而没有规定那个对象的值不能通过其他途径改变。<br>（试试这样想吧：所谓指向常量的指针或引用，不过是指针或引用“自以为是”罢了，它们觉得自己指向了常量，所以自觉地不去改变所指对象的值）</p>
+<h3 id="5-const指针"><a href="#5-const指针" class="headerlink" title="5.const指针"></a>5.const指针</h3><p>允许把指针本身定为常量（常量指针）。常量指针必须初始化，而且一旦初始化完成，则它的值（也就是存放在指针中的那个地址）就不能再改变了。把*放在const关键字之前用以说明指针是一个常量。</p>
+<h3 id="6-顶层const"><a href="#6-顶层const" class="headerlink" title="6.顶层const"></a>6.顶层const</h3><p>如前所述，指针本身是一个对象。因此，指针本身是不是常量以及指针所指的是不是常量就是两个独立的问题。用名词<strong>顶层const</strong>表示指针本身是个常量，而用名词<strong>底层const</strong>表示指针所指的对象是一个常量。</p>
+<p>更一般的，顶层const可以表示任意的对象时常量，这一点对任何数据类型都适用，如算术类型、类、指针等。底层const则与指针和引用等复合类型的基本类型部分有关。比较特殊的是，指针类型既可以是顶层const也可以是底层const，这一点和其他类型相比区别明显：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line"><span class="keyword">int</span> *<span class="keyword">const</span> p1 = &amp;i;		<span class="comment">//不能改变p1的值，这是一个顶层const</span></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> ci = <span class="number">42</span>;		<span class="comment">//不能改变ci的值，这是一个顶层const</span></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> *p2 = &amp;ci; 	<span class="comment">//允许改变p2的值，这是一个底层const</span></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> *<span class="keyword">const</span> p3 = p2;<span class="comment">//靠右的是顶层const，靠左的是底层const</span></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> &amp;r = ci;		<span class="comment">//用于声明引用的const都是底层const</span></div></pre></td></tr></table></figure></p>
+<p>执行对象的拷贝操作时，顶层const不受什么影响，底层const的限制确不能忽视。当执行对象的拷贝操作时，拷入和拷出的对象必须具有相同的底层const资格，或者两个对象的数据类型必须能够转换。一般来说，非常量可以转换成常量，反之则不行：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> *p = p3;		<span class="comment">//错误：p3包含底层const的定义，而p没有</span></div><div class="line">p2 = p3;			<span class="comment">//正确：p2和p3都是底层cosnt</span></div><div class="line">p2 = &amp;i;			<span class="comment">//正确：int*能转换成const int*</span></div><div class="line"><span class="keyword">int</span> &amp;r = ci;		<span class="comment">//错误：普通的int&amp;不能绑定到int常量上</span></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> &amp;r2 = i; 	<span class="comment">//正确：const int&amp; 可以绑定到一个普通int上</span></div></pre></td></tr></table></figure>
+<p>（笔者注：顶层指的指针（引用）本身，底层指的是指针（引用）所指（引）的对象）</p>
+<h3 id="7-constexpr和常量表达式"><a href="#7-constexpr和常量表达式" class="headerlink" title="7.constexpr和常量表达式"></a>7.constexpr和常量表达式</h3><p><strong>常量表达式</strong>是指值不会改变并且在编译过程就能得到计算结果的表达式。显然，字面值属于常量表达式，用常量表达式初始化的const对象也是常量表达式。</p>
+<p><strong>constexpr变量</strong>：在一个复杂系统中，很难分辨一个初始值到底是不是常量表达式。当然可以定义一个const变量并把它的初始值设为我们认为的某个常量表达式，但在实际应用时，尽管要求如此却常常发现初始值并非常量表达式的情况。可以这么说，在此种情况下，对象的定义和使用根本就是两回事儿。</p>
+<blockquote>
+<p>C++11新标准规定，允许将变量声明为constexpr类型以便由编译器来验证变量的值是否为一个常量表达式。声明为constexpr的变量一定是一个常量，而且必须用常量表达式初始化。</p>
+</blockquote>
+<p>（一般来说，如果你认定变量时一个常量表达式，那就把它声明成constexpr类型）</p>
+<p><strong>字面值类型</strong>：常量表达式的值需要在编译时就得到计算，因此对声明constexpr时用到的类型必须有所限制。因为这些类型一般比较简单，值也显而易见、容易得到，就把它们称为“字面值类型”，到目前为止接触过的数据类型中，算术类型、引用和指针都属于字面值类型。自定义类、IO库、string类型则不属于字面值类型，也就不能定义成constexpr。尽管指针和引用都能定义成constexpr，但他们的初始值却受到严格限制。一个constexpr指针的初始值必须是nullptr或者0，或者是存储于某个固定地址中的对象（函数体内定义的变量一般来说并非存储于某个固定地址中，因此constexpr指针不能指向这样的变量，相反，定义于所有函数体之外的对象其固定地址不变，能用来初始化constexpr指针）。<br>    在constexpr声明中如果定义了一个指针，限定符constexpr仅对指针有效，与指针所指的对象无关。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C-Primer-笔记/" rel="tag"># C++ Primer 笔记</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/07/30/第二章-2-3-复合类型/" rel="next" title="第二章 2.3 复合类型">
+                <i class="fa fa-chevron-left"></i> 第二章 2.3 复合类型
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/07/30/第二章-2-5-处理类型/" rel="prev" title="第二章 2.5 处理类型">
+                第二章 2.5 处理类型 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/07/30/第二章-2-4-const限定符/"
+           data-title="第二章 2.4 const限定符" data-url="http://yoursite.com/2015/07/30/第二章-2-4-const限定符/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Lam" />
+          <p class="site-author-name" itemprop="name">Lam</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lamaaa" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/linhaoyang0" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://facebook.com/linhaoyang0" target="_blank" title="Facebook">
+                  
+                    <i class="fa fa-fw fa-facebook"></i>
+                  
+                  Facebook
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/Haoyang_Lam" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-初始化和const"><span class="nav-number">1.</span> <span class="nav-text">1.初始化和const</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-const的引用"><span class="nav-number">2.</span> <span class="nav-text">2.const的引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-初始化和对const的引用"><span class="nav-number">3.</span> <span class="nav-text">3.初始化和对const的引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-指针和const"><span class="nav-number">4.</span> <span class="nav-text">4.指针和const</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-const指针"><span class="nav-number">5.</span> <span class="nav-text">5.const指针</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-顶层const"><span class="nav-number">6.</span> <span class="nav-text">6.顶层const</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-constexpr和常量表达式"><span class="nav-number">7.</span> <span class="nav-text">7.constexpr和常量表达式</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lam</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"lamaaa"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

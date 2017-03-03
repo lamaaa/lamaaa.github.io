@@ -1,0 +1,912 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="数据库学习笔记," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="未完的梦" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="关系数据库的结构1.关系用来指代表，而元组用来指代行，属性指代表中的列。
+2.对于关系的每个属性，都存在一个允许取值的集合，称为该属性的域。域是原子的，不可再分。
+数据库模式3.数据库模式是数据库的设计逻辑，数据库实例是给定时刻数据库中数据的一个快照。
+码4.超码是一个或多个属性的集合，这些属性的组合可以使我们在一个关系中唯一地标识一个元祖。如果K是一个超码，那么K的任意超集也是超码。
+5.如果一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库学习笔记一（某些定义）">
+<meta property="og:url" content="http://yoursite.com/2016/09/18/数据库学习笔记一/index.html">
+<meta property="og:site_name" content="未完的梦">
+<meta property="og:description" content="关系数据库的结构1.关系用来指代表，而元组用来指代行，属性指代表中的列。
+2.对于关系的每个属性，都存在一个允许取值的集合，称为该属性的域。域是原子的，不可再分。
+数据库模式3.数据库模式是数据库的设计逻辑，数据库实例是给定时刻数据库中数据的一个快照。
+码4.超码是一个或多个属性的集合，这些属性的组合可以使我们在一个关系中唯一地标识一个元祖。如果K是一个超码，那么K的任意超集也是超码。
+5.如果一">
+<meta property="og:updated_time" content="2016-12-01T07:55:57.803Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据库学习笔记一（某些定义）">
+<meta name="twitter:description" content="关系数据库的结构1.关系用来指代表，而元组用来指代行，属性指代表中的列。
+2.对于关系的每个属性，都存在一个允许取值的集合，称为该属性的域。域是原子的，不可再分。
+数据库模式3.数据库模式是数据库的设计逻辑，数据库实例是给定时刻数据库中数据的一个快照。
+码4.超码是一个或多个属性的集合，这些属性的组合可以使我们在一个关系中唯一地标识一个元祖。如果K是一个超码，那么K的任意超集也是超码。
+5.如果一">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/09/18/数据库学习笔记一/"/>
+
+
+
+
+
+  <title> 数据库学习笔记一（某些定义） | 未完的梦 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?78ddd4fbb114a78906f5428ec6ef7cc4";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">未完的梦</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', '27eUggKetbKto6zXroKM','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/18/数据库学习笔记一/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lam">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="未完的梦">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                数据库学习笔记一（某些定义）
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-09-18T20:40:00+08:00">
+                2016-09-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Technology/" itemprop="url" rel="index">
+                    <span itemprop="name">Technology</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Technology/Database/" itemprop="url" rel="index">
+                    <span itemprop="name">Database</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/09/18/数据库学习笔记一/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/18/数据库学习笔记一/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="关系数据库的结构"><a href="#关系数据库的结构" class="headerlink" title="关系数据库的结构"></a>关系数据库的结构</h1><p>1.<strong>关系</strong>用来指代表，而<strong>元组</strong>用来指代行，<strong>属性</strong>指代表中的列。</p>
+<p>2.对于关系的每个属性，都存在一个允许取值的集合，称为该属性的<strong>域</strong>。域是原子的，不可再分。</p>
+<h1 id="数据库模式"><a href="#数据库模式" class="headerlink" title="数据库模式"></a>数据库模式</h1><p>3.<strong>数据库模式</strong>是数据库的设计逻辑，<strong>数据库实例</strong>是给定时刻数据库中数据的一个快照。</p>
+<h1 id="码"><a href="#码" class="headerlink" title="码"></a>码</h1><p>4.<strong>超码</strong>是一个或多个属性的集合，这些属性的组合可以使我们在一个关系中唯一地标识一个元祖。如果K是一个超码，那么K的任意超集也是超码。</p>
+<p>5.如果一个超码它的任意真子集都不能成为超码。这样的最小超码称为<strong>候选码</strong>。</p>
+<p>6.候选码可能有多个，我们用<strong>主码</strong>这个术语来代表被数据库设计者选中的、主要用来在一个关系中区分不同元组的候选码。码（不论是主码、候选码或超码）是整个关系中的一种性质，而不是单个元组的性质。</p>
+<p>7.一个关系模式（如r1）可能在它的属性中包括了另一个关系模式（如r2）的主码。这个属性在r1上称作<strong>参照r2的外码</strong>。<strong>关系r1也称为外码依赖的参照关系</strong>。<strong>r2叫做外码的被参照关系</strong>。</p>
+<p>8.<strong>参照完整性约束</strong>要求在参照关系中任意元组在特定属性上的取值必然等于被参照关系中某个元组在特定属性上的取值。</p>
+<a id="more"></a>
+<h1 id="关系查询语言"><a href="#关系查询语言" class="headerlink" title="关系查询语言"></a>关系查询语言</h1><p>9.<strong>查询语言</strong>是用户用来从数据库中请求获取信息的语言。分为<strong>过程化语言</strong>和<strong>非过程化语言</strong>，在过程化语言中，用户指导系统对数据库执行一系列操作以计算出所需结果。在非过程化语言中，用户只需描述所需信息，而不用给出获取该信息的具体过程。</p>
+<h1 id="关系运算"><a href="#关系运算" class="headerlink" title="关系运算"></a>关系运算</h1><p>10.最常用的关系运算是<strong>从单个关系中选出满足一些特定谓词（如salary＞85000）的特殊元</strong>组。其结果是一个新关系，它是原始关系的一个子集。</p>
+<p>11.另一个常用的运算是<strong>从一个关系中选出特定的属性（列）</strong>，其结果是一个只包含那些被选择属性的新关系。</p>
+<p>12.<strong>连接运算</strong>可以通过下述方式来结合两个关系：把分别来自两个关系的元组对合并成单个元组。</p>
+<p>13.在<strong>自然连接</strong>中，对于来自关系r1中的一个元组与关系r2中的一个元组来说，如果他们某个相同的特定属性取值相同，那么它们就是匹配的。所有这样匹配的元组队都会在连接结果中出现。通常来说，两个关系上的自然连接运算所匹配的元组在两个关系共有的所有属性上取值相同。</p>
+<p>14.<strong>笛卡尔积运算</strong>从两个关系中合并元组，但不同于连接运算的是，其结果包含来自两个关系元组的所有对，无论它们的属性值是否匹配。</p>
+<p>15.因为关系是集合，所以我们可以在关系上施加标准的集合运算。</p>
+<h2 id="某些定义"><a href="#某些定义" class="headerlink" title="某些定义"></a>某些定义</h2><ul>
+<li>数据定义语言（Data-Definition Language, DDL）:SQL DDL 提供定义关系模式、删除关系以及修改关系模式的命令。</li>
+<li>数据操纵语言（Data-Manipulation Language, DML）:SQL DML 提供从数据库中查询信息，以及在数据库中插入元组、删除元组、修改元组的能力</li>
+<li>完整性（integrity）：SQL DDL包括定义完整性约束的命令，保存在数据库中的数据必须满足所定义的完整性约束。破坏完整性约束的更新是不允许的。<ul>
+<li>实体完整性约束：实体完整性指表中行的完整性。主要用于保证操作的数据（记录）非空、唯一且不重复。即实体完整性要求每个关系（表）有且仅有一个主键，每一个主键值必须唯一，而且不允许为“空”（NULL）或重复。</li>
+<li>参照完整性约束：对于永久关系的相关表，在更新、插入或删除记录时，如果只改其一，就会影响数据的完整性。如删除父表的某记录后，子表的相应记录未删除，致使这些记录称为孤立记录。对于更新、插入或删除表间数据的完整性，统称为参照完整性。通常，在客观现实中的实体之间存在一定联系，在关系模型中实体及实体间的联系都是以关系进行描述，因此，操作时就可能存在着关系与关系间的关联和引用。</li>
+<li>域完整性约束：指数据库表中的列必须满足某种特定的数据类型或约束。其中约束又包括取值范围、精度等规定。表中的CHECK、FOREIGN KEY 约束和DEFAULT、 NOT NULL定义都属于域完整性的范畴。</li>
+<li>用户定义的完整性约束：用户定义完整性规则也称域完整性规则。包括字段的值域、字段的类型和字段的有效规则（如小数位数）等约束，是由确定关系结构时所定义的字段的属性决定的。如，百分制成绩的取值范围在0~100之间等。</li>
+</ul>
+</li>
+<li>视图定义（view definition）：SQL DDL包括定义视图的命令。</li>
+<li>事务控制（transaction control）：SQL包括定义事务的开始和结束的命令。</li>
+<li>嵌入式SQL和动态SQL（embedded SQL and dynamic SQL）：嵌入式和动态SQL定义SQL语句如何嵌入到通用变成语言，如C、C++和Java中。</li>
+<li>授权（authorization）：SQL DDL包括定义对关系和视图的访问权限的命令。</li>
+</ul>
+<h2 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h2><ul>
+<li>char(n)：固定长度的字符串，用户指定长度n。</li>
+<li>varchar(n)：可变长度的字符串，用户指定最大长度n。</li>
+<li>int：整数类型（和机器相关的整数类型的子集）</li>
+<li>smallint：小整数类型（和机器相关的整数类型的子集）</li>
+<li>numeric：定点数，精度由用户指定。这个数有p位数字（加上一个符号位），其中d位数字在小数点右边。</li>
+<li>real, double precision：浮点数与双精度浮点数，精度与机器相关。</li>
+<li>float(n)：精度至少为n位的浮点数。</li>
+</ul>
+<p>注意：当属性A的类型是char（10），如果我们为此属性存入字符串“Avi”，那么该字符串会追加7个空格来使其达到10个字符的串长度。当比较比较两个char类型的值时，如果它们的长度不同，在比较之前会自动在短值后面加上额外的空格以使它们的长度一致。当比较一个char类型和一个varchar类型的时候，可能会自动加上额外的空格使得长度一致也可能不会。</p>
+<p>自然连接时，SQL提供了一种自然连接构造方式，允许用户来指定需要哪些列相等，下列查询说明了这个特征：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">name</span>, title</div><div class="line"><span class="keyword">from</span> (instructor <span class="keyword">natural</span> <span class="keyword">join</span> teaches) <span class="keyword">join</span> course <span class="keyword">using</span> (course_id)</div></pre></td></tr></table></figure></p>
+<p>join```using运算中需要给定一个属性名列表，其两个输入中都必须具有指定名称的属性。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据库学习笔记/" rel="tag"># 数据库学习笔记</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/05/对“石神”的一些看法/" rel="next" title="对“石神”的一些看法">
+                <i class="fa fa-chevron-left"></i> 对“石神”的一些看法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/21/Carrying-You-Cello-Piano/" rel="prev" title="Carrying You (Cello & Piano)">
+                Carrying You (Cello & Piano) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/18/数据库学习笔记一/"
+           data-title="数据库学习笔记一（某些定义）" data-url="http://yoursite.com/2016/09/18/数据库学习笔记一/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Lam" />
+          <p class="site-author-name" itemprop="name">Lam</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lamaaa" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/linhaoyang0" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://facebook.com/linhaoyang0" target="_blank" title="Facebook">
+                  
+                    <i class="fa fa-fw fa-facebook"></i>
+                  
+                  Facebook
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/Haoyang_Lam" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关系数据库的结构"><span class="nav-number">1.</span> <span class="nav-text">关系数据库的结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据库模式"><span class="nav-number">2.</span> <span class="nav-text">数据库模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#码"><span class="nav-number">3.</span> <span class="nav-text">码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关系查询语言"><span class="nav-number">4.</span> <span class="nav-text">关系查询语言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关系运算"><span class="nav-number">5.</span> <span class="nav-text">关系运算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#某些定义"><span class="nav-number">5.1.</span> <span class="nav-text">某些定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本类型"><span class="nav-number">5.2.</span> <span class="nav-text">基本类型</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lam</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"lamaaa"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

@@ -1,0 +1,901 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="C++ Primer 笔记," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="未完的梦" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="1.类型别名类型别名是一个名字，他是某个类型的同义词。有两种方法可用于定义类型别名。传统的方法是使用关键字typedef，
+
+C++ 11新标准规定了一种新的方法，使用别名声明来定义类型的别名。
+
+（1）使用关键字typedef12typedef double wages;			//wages是double的同义词typedef wages base,*p;			//base是double的同义词">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第二章 2.5 处理类型">
+<meta property="og:url" content="http://yoursite.com/2015/07/30/第二章-2-5-处理类型/index.html">
+<meta property="og:site_name" content="未完的梦">
+<meta property="og:description" content="1.类型别名类型别名是一个名字，他是某个类型的同义词。有两种方法可用于定义类型别名。传统的方法是使用关键字typedef，
+
+C++ 11新标准规定了一种新的方法，使用别名声明来定义类型的别名。
+
+（1）使用关键字typedef12typedef double wages;			//wages是double的同义词typedef wages base,*p;			//base是double的同义词">
+<meta property="og:updated_time" content="2016-08-27T07:27:38.032Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第二章 2.5 处理类型">
+<meta name="twitter:description" content="1.类型别名类型别名是一个名字，他是某个类型的同义词。有两种方法可用于定义类型别名。传统的方法是使用关键字typedef，
+
+C++ 11新标准规定了一种新的方法，使用别名声明来定义类型的别名。
+
+（1）使用关键字typedef12typedef double wages;			//wages是double的同义词typedef wages base,*p;			//base是double的同义词">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/07/30/第二章-2-5-处理类型/"/>
+
+
+
+
+
+  <title> 第二章 2.5 处理类型 | 未完的梦 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?78ddd4fbb114a78906f5428ec6ef7cc4";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">未完的梦</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', '27eUggKetbKto6zXroKM','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/07/30/第二章-2-5-处理类型/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lam">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="未完的梦">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                第二章 2.5 处理类型
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-07-30T14:49:51+08:00">
+                2015-07-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Technology/" itemprop="url" rel="index">
+                    <span itemprop="name">Technology</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Technology/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/07/30/第二章-2-5-处理类型/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/30/第二章-2-5-处理类型/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-类型别名"><a href="#1-类型别名" class="headerlink" title="1.类型别名"></a>1.类型别名</h2><p><strong>类型别名</strong>是一个名字，他是某个类型的同义词。有两种方法可用于定义类型别名。传统的方法是使用<strong>关键字typedef</strong>，</p>
+<blockquote>
+<p>C++ 11新标准规定了一种新的方法，使用<strong>别名声明</strong>来定义类型的别名。</p>
+</blockquote>
+<p>（1）使用关键字typedef<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">typedef double wages;			//wages是double的同义词</div><div class="line">typedef wages base,*p;			//base是double的同义词，p是double*的同义词</div></pre></td></tr></table></figure></p>
+<p>（2）别名声明<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">using iloveyou = int; 			//iloveyou是int的同义词</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>如果某个类型别名指代的是复合类型或常量，name把它用到声明语句里就会产生意想不到的结果。例如下面的声明语句用到类类型pstring，它实际是类型char*的别名：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">typedef char *pstring;</div><div class="line">const pstring cstr = 0;		//cstr是指向char的常量指针</div><div class="line">const pstring *ps;	        //ps是一个指针，它的对象是指向char的常量指针</div></pre></td></tr></table></figure></p>
+<p>上述两条声明语句的基本数据类型都是const pstring，和过去一样，const是对给定类型的修饰。pstring实际上指向char的指针，因此，const pstring就是指向char的常量指针，而非指向常量字符的指针。上面*ps就是指向char的常量指针，即ps的对象时指向char的常量指针。</p>
+<p>遇到一条使用了类型别名的声明语句时，人们往往会错误地尝试把类型别名替换成它本来的燕子，以理解该语句的含义：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">const char *cstr 			//是对const pstring cstr的错误理解</div></pre></td></tr></table></figure></p>
+<p>再强调一次：这种理解是错误的。声明语句中用到pstring时，其基本数据类型是指针。可是用char<em>重写了声明语句后，数据类型就变成了char，</em>成为了声明符的一部分，这样改写的结果是，const char成了基本数据类型。前后两种声明含义截然不同，前者声明了一个指向char的常量指针，改写后的形式则声明了一个指向const char的指针。</p>
+<h2 id="2-auto类型说明符"><a href="#2-auto类型说明符" class="headerlink" title="2.auto类型说明符"></a>2.auto类型说明符</h2><blockquote>
+<p>C++11新标准引入了<strong>auto类型说明符</strong>，用它就能让编译器替我们去分析表达式所属的类型。</p>
+</blockquote>
+<p>和原来那些只对应一种特定类型的说明符（比如double）不同，auto让编译器通过初始值来推算变量的类型。显然，auto定义的变量必须有初始值：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">auto i = 0,*p = &amp;i;		//正确：i是整数、p是整型指针</div><div class="line">auto sz = 0,pi = 3.14;	//错误：sz和pi的类型不一致</div></pre></td></tr></table></figure></p>
+<p>编译器推断出来的auto类型有时候和初始值的类型并不一样，编译器会适当地改变结果类型使其更符合初始化规则。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">int i = 0,&amp;r = i;</div><div class="line">auto a = r;		//a是一个整数（r是i的别名，而i是一个整数）</div></pre></td></tr></table></figure></p>
+<p>其次，auto一般会忽略顶层const，同时底层const则会保留则会保留下来，比如当初始值是一个指向常量的指针时：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">const int ci = i,&amp;cr = ci;</div><div class="line">auto b = ci;		//b是一个整数（ci的顶层const特性被忽略掉了）</div><div class="line">auto c = cr;		//c是一个整数（cr是ci的别名，ci本身是一个顶层const）</div><div class="line">auto d = &amp;i;		//d是一个整型指针（整数的地址就是指向整数的指针）</div><div class="line">auto e = &amp;ci;		//e是一个指向整数常量的指针（对常量对象取地址是一种底层const）</div></pre></td></tr></table></figure></p>
+<p>如果希望推断出的auto类型是一个顶层const，需要明确指出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">const auto f = ci; 	//ci的推演类型是int，f是const int</div></pre></td></tr></table></figure></p>
+<p>还可以将引用的类型设为auto，此时原来的初始化规则仍然适用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">auto &amp;g = ci;			//g是一个整型常量引用，绑定到ci</div><div class="line">auto &amp;h = 42;			//错误：不能为非常量引用绑定字面值</div><div class="line">const auto &amp;j = 42;		//正确：可以为常量引用绑定字面值</div></pre></td></tr></table></figure></p>
+<p>设置一个类型为auto的引用时，初始值的顶层常量属性仍然保留。和往常一样，如果我们给初始值绑定一个引用，则此时的常量就不是顶层常量了。</p>
+<h3 id="3-decltype类型指示符"><a href="#3-decltype类型指示符" class="headerlink" title="3.decltype类型指示符"></a>3.decltype类型指示符</h3><p>decltype的作用是选择并返回操作数的数据类型。在此过程中，编译器分析表达式并得到它的类型，却不实际计算表达式的值：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">decltype(f()) sum = x;		//sum的类型就是函数f的返回类型</div></pre></td></tr></table></figure></p>
+<p>编译器并不实际调用函数f，而是使用当调用发生时f的返回值类型作为sum的类型。换句话说，编译器sum指定的类型是什么呢？就是假如f被调用的话将会返回的那个类型。</p>
+<p>decltype处理顶层const和引用的方式与auto有些不同。如果decltype使用的表达式是一个变量，则decltype返回该变量的类型（包括顶层const和引用在内）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">const int ci = 0,&amp;cj = ci;</div><div class="line">decltype(ci) x = 0;		//x的类型是const int</div><div class="line">decltype(cj) y = x;		//y的类型时const int&amp;，y绑定到变量x</div><div class="line">decltype(cj) z;			//错误：z是一个引用，必须初始化</div></pre></td></tr></table></figure></p>
+<p>需要指出的是，引用从来都是作为其所指对象的同义词出现，只有用在decltype处是例外。</p>
+<p><em>delctype((variable))（注意是双层括号）的结果永远是引用，而decltype(variable)结果只有当variable本身就是一个引用时才是引用。</em></p>
+<p><em>如果decltype使用的表达式不是一个变量，则decltype返回表达式结果对应的类型。</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//decltype的结果可以是引用的类型</div><div class="line">int i = 42,*p = &amp;i,&amp;r = i;</div><div class="line">decltype(r + 0) b;		//正确：加法的结果是int，因此b是一个（未初始化的）int</div><div class="line">decltype(*p) c;	    	//错误：c是int&amp;，必须初始化</div></pre></td></tr></table></figure></p>
+<p>因为r是一个引用，因此decltype（r）的结果是引用类型，如果想让结果类型是r所指的类型，可以把r作为表达式的一部分，如r+0，显然这个表达式的结果是一个具体值而非一个引用。<br>    另一方面，如果表达式的内容是解引用操作，则decltype将得到引用类型。正如我们所熟悉的那样，解引用指针可以得到所指的对象，而且还能给这个对象赋值。因此，decltype（*p）的结果类型就是int&amp;，而非int。</p>
+<h3 id="4-自定义数据结构"><a href="#4-自定义数据结构" class="headerlink" title="4.    自定义数据结构"></a>4.    自定义数据结构</h3><p><strong>预处理器</strong>概述:<br>    确保头文件多次包含仍能安全工作的常用技术是预处理器，它由C++语言从C语言继承而来。预处理器实在编译之前执行的一段程序，可以部分地改变我们所写的程序。之前已经用到了一项预处理功能#include，当预处理器看到#include标记时就会用到指定的头文件的内容代替#include。</p>
+<p>C++程序还会用到的一项预处理功能是头文件保护符，头文件保护符依赖于预处理变量。预处理变量有两种状态：已定义和未定义。#define指令把一个名字设定为预处理变量，另外两个指令则分别检查某个指定的预处理变量是否已经已经定义：#ifdef当且仅当变量已定义时为真，#ifndef当且仅当变量未定义时为真。一旦检查结果为真，则执行后续操作直至遇到#endif指令为止。</p>
+<p>使用这些功能就能有效地防止重复包含的发生<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#ifndef SALES_DATA_H</div><div class="line">#define SALES_DATA_H</div><div class="line">#include &lt;string&gt;</div><div class="line">struct Sales_data &#123;</div><div class="line">    std::string bookNo;</div><div class="line">	unsigned units_sold = 0;</div><div class="line">	double revenue = 0.0;</div><div class="line">&#125;</div><div class="line">#endif</div></pre></td></tr></table></figure></p>
+<p>第一次包含Sales_data.h时，#ifndef的检查加过为真，预处理器将顺序执行后面的操作直至遇到#endif为止。此时，预处理变量SALES_DATA_H的值将变为已定义而且Sales_data.h也会被拷贝到我们的程序中来。后面如果再一次包含Sales_data.h，则#idndef的检查结果将为假，编译器将忽略#ifndef到#endif之前的部分。</p>
+<p>整个程序中的预处理变量包括头文件保护符必须唯一，通常的做法是基于头文件中类的名字来构建保护符的名字，以确保其唯一性。为了避免与程序中的其他实体发生名字冲突，一般把预处理变量的名字全部大写。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C-Primer-笔记/" rel="tag"># C++ Primer 笔记</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/07/30/第二章-2-4-const限定符/" rel="next" title="第二章 2.4 const限定符">
+                <i class="fa fa-chevron-left"></i> 第二章 2.4 const限定符
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/07/30/第二章-小结/" rel="prev" title="第二章 小结">
+                第二章 小结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/07/30/第二章-2-5-处理类型/"
+           data-title="第二章 2.5 处理类型" data-url="http://yoursite.com/2015/07/30/第二章-2-5-处理类型/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Lam" />
+          <p class="site-author-name" itemprop="name">Lam</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lamaaa" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/linhaoyang0" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://facebook.com/linhaoyang0" target="_blank" title="Facebook">
+                  
+                    <i class="fa fa-fw fa-facebook"></i>
+                  
+                  Facebook
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/Haoyang_Lam" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-类型别名"><span class="nav-number">1.</span> <span class="nav-text">1.类型别名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-auto类型说明符"><span class="nav-number">2.</span> <span class="nav-text">2.auto类型说明符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-decltype类型指示符"><span class="nav-number">2.1.</span> <span class="nav-text">3.decltype类型指示符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-自定义数据结构"><span class="nav-number">2.2.</span> <span class="nav-text">4.    自定义数据结构</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lam</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"lamaaa"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

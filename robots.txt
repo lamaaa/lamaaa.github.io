@@ -1,0 +1,18 @@
+# hexo robots.txt
+User-agent: *
+Allow: /
+Allow: /archives/
+Allow: /categories/
+Allow: /about/
+Allow: /tags/
+
+Disallow: /vendors/
+Disallow: /js/
+Disallow: /css/
+Disallow: /fonts/
+Disallow: /vendors/
+Disallow: /fancybox/
+
+Sitemap: http://linhaoyang.cn/sitemap.xml
+Sitemap: http://linhaoyang.cn/baidusitemap.xml
+

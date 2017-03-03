@@ -1,0 +1,966 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="课程设计," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="未完的梦" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="#设备管理系统
+
+课程名称:     C语言课程综合设计实验项目名称:   设备管理系统软件设计班级与班级代码: 14计算机实验班实验室名称:     实验楼803专    业:       计算机科学与技术实验班任课教师:       赖庆姓    名：      Lam实验日期：      2015年 06月 29日">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大一下的课程设计：设备管理系统">
+<meta property="og:url" content="http://yoursite.com/2015/08/02/大一下的课程设计：设备管理系统/index.html">
+<meta property="og:site_name" content="未完的梦">
+<meta property="og:description" content="#设备管理系统
+
+课程名称:     C语言课程综合设计实验项目名称:   设备管理系统软件设计班级与班级代码: 14计算机实验班实验室名称:     实验楼803专    业:       计算机科学与技术实验班任课教师:       赖庆姓    名：      Lam实验日期：      2015年 06月 29日">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/9ae176d0gw1eup5zz5gw5j20rj0fnwhx.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/9ae176d0gw1eup6owb2d1j20g201g3yg.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/9ae176d0gw1eup70as03sj20it0ca0ug.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/9ae176d0gw1eup71bhu96j20it0cawfr.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/9ae176d0gw1eup70w3g90j20it0cawff.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/9ae176d0gw1eup71pd5n5j20it0ca75j.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/9ae176d0gw1eup71xiyh6j20it0ca0ts.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/9ae176d0gw1eup723mclfj20it0caq44.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/9ae176d0gw1eup72a1todj20it0ca768.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/9ae176d0gw1eup72goobkj20it0ca40h.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/9ae176d0gw1eup72qjy1hj20it0caq52.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/9ae176d0gw1eup72zmbn2j20it0ca0ul.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/9ae176d0gw1eup73ai9g3j20it0cajse.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/9ae176d0gw1eup73ihp30j20it0caaba.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/9ae176d0gw1eup73pcv3uj20it0ca75a.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/9ae176d0gw1eup73x0u10j20it0cajse.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/9ae176d0gw1eup7435i2tj20it0cajse.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/9ae176d0gw1eup749e98fj20it0cadgw.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/9ae176d0gw1eup74f7xrjj20it0caq3y.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/9ae176d0gw1eup74npisaj20it0cagml.jpg">
+<meta property="og:updated_time" content="2016-08-27T07:35:50.463Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="大一下的课程设计：设备管理系统">
+<meta name="twitter:description" content="#设备管理系统
+
+课程名称:     C语言课程综合设计实验项目名称:   设备管理系统软件设计班级与班级代码: 14计算机实验班实验室名称:     实验楼803专    业:       计算机科学与技术实验班任课教师:       赖庆姓    名：      Lam实验日期：      2015年 06月 29日">
+<meta name="twitter:image" content="http://ww4.sinaimg.cn/large/9ae176d0gw1eup5zz5gw5j20rj0fnwhx.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/08/02/大一下的课程设计：设备管理系统/"/>
+
+
+
+
+
+  <title> 大一下的课程设计：设备管理系统 | 未完的梦 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?78ddd4fbb114a78906f5428ec6ef7cc4";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">未完的梦</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', '27eUggKetbKto6zXroKM','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/08/02/大一下的课程设计：设备管理系统/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lam">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="未完的梦">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                大一下的课程设计：设备管理系统
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-08-02T11:59:27+08:00">
+                2015-08-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Technology/" itemprop="url" rel="index">
+                    <span itemprop="name">Technology</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Technology/C-Language/" itemprop="url" rel="index">
+                    <span itemprop="name">C Language</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/08/02/大一下的课程设计：设备管理系统/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/02/大一下的课程设计：设备管理系统/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>#设备管理系统</p>
+<blockquote>
+<p>课程名称:     C语言课程综合设计<br>实验项目名称:   设备管理系统软件设计<br>班级与班级代码: 14计算机实验班<br>实验室名称:     实验楼803<br>专    业:       计算机科学与技术实验班<br>任课教师:       赖庆<br>姓    名：      Lam<br>实验日期：      2015年 06月 29日</p>
+</blockquote>
+<hr>
+<a id="more"></a>
+<hr>
+<p>####一、系统概述</p>
+<p>本系统是一个设备管理系统，用于存储和管理设备产品的信息，系统功能包括：设备名称、价格、生产厂家信息的录入、删除、修改、查找、排序等。整个系统由C语言实现，信息在程序中通过双向链表的方式被存储，如果使用保存功能，即存入文件根目录下的相应.txt文件中。</p>
+<p>####二、系统功能模块结构</p>
+<p><img src="http://ww4.sinaimg.cn/large/9ae176d0gw1eup5zz5gw5j20rj0fnwhx.jpg" alt="系统模块"></p>
+<p>1． 主模块一：设备数据文件处理<br>该模块包括3个子模块，分别是：文件创建处理、文件读取处理、文件存盘处理。<br>当前根目录没有文件时，若读取文件，显示没有文件可以打开；若增加记录，则进行文件创建处理。<br>当前根目录已有文件时，进行文件读取和文件存盘处理。<br>所有信息可被保存在文件data.txt中，data.txt用于保存设备节点信息。</p>
+<p>2．    主模块二：设备数据录入处理<br>该模块包括1个子模块，即设备信息录入。<br>在插入下一级节点时，输入设备系统的各项数据即可，当设备编号输入为0时，输入结束。</p>
+<p>3．    主模块三：设备数据修改处理<br>该模块包括2个子模块，分别是按照设备编号名称和按照设备编号找到该设备，这两个子模块又各自包含8个子模块，即：设备编号修改、设备名称修改、设备种类修改、设备单价、购进年代、生产厂家、是否报废。<br>在修改各模块之前，应先找到该设备，若系统中没有该设备，则应退出操作，否则输入对应的数字编号即可修改。</p>
+<p>4．    主模块四：设备数据查询处理<br>该模块包括2个子模块，分别是按照设备编号名称和按照设备编号找到该设备。<br>使用查询操作时，若找到该设备，则显示该设备的完整信息，否则，提示不存在。</p>
+<ol>
+<li>主模块五：设备数据显示处理<br>该模块包括2个子模块，分别是按照设备单价显示和按照设备种类统计显示。<br>使用按照设备单价显示，则按照价格从低到高打印设备的信息。<br>使用按照设备种类统计显示，则分别打印出各个种类的数量。</li>
+</ol>
+<p>6．主模块六：设备数据删除处理<br>该模块包括2个子模块，分别是：按照设备编号和按照设备名称<br>按照提示进行删除操作，操作后可以选择继续删除或者返回。</p>
+<p>####三、数据结构设计及用法说明</p>
+<p>1.设备节点结构及用法说明</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">中文字段名</th>
+<th style="text-align:center">英文字段名</th>
+<th style="text-align:center">数据类型</th>
+<th style="text-align:center">举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">设备编号</td>
+<td style="text-align:center">idOfEquipment</td>
+<td style="text-align:center">char[20]</td>
+<td style="text-align:center">001</td>
+</tr>
+<tr>
+<td style="text-align:center">设备名称</td>
+<td style="text-align:center">nameOfEquipment</td>
+<td style="text-align:center">char[20]</td>
+<td style="text-align:center">钱包</td>
+</tr>
+<tr>
+<td style="text-align:center">设备种类</td>
+<td style="text-align:center">typeOfEquipment</td>
+<td style="text-align:center">char[20]</td>
+<td style="text-align:center">工具类</td>
+</tr>
+<tr>
+<td style="text-align:center">设备单价</td>
+<td style="text-align:center">priceOfEquipment</td>
+<td style="text-align:center">int</td>
+<td style="text-align:center">59</td>
+</tr>
+<tr>
+<td style="text-align:center">购进年代</td>
+<td style="text-align:center">purchaseTime</td>
+<td style="text-align:center">char[9]</td>
+<td style="text-align:center">20150613</td>
+</tr>
+<tr>
+<td style="text-align:center">设备厂商</td>
+<td style="text-align:center">manufacturer</td>
+<td style="text-align:center">char[20]</td>
+<td style="text-align:center">Camel</td>
+</tr>
+<tr>
+<td style="text-align:center">是否报废</td>
+<td style="text-align:center">isscrap</td>
+<td style="text-align:center">int</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">报废时间</td>
+<td style="text-align:center">scrapTime</td>
+<td style="text-align:center">char[9]</td>
+<td style="text-align:center">-–</td>
+</tr>
+<tr>
+<td style="text-align:center">上一个节点</td>
+<td style="text-align:center">next</td>
+<td style="text-align:center">struct equipment *</td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">下一个节点</td>
+<td style="text-align:center">before</td>
+<td style="text-align:center">struct equipment *</td>
+<td style="text-align:center">无</td>
+</tr>
+</tbody>
+</table>
+<p>2.数据结构说明<br><img src="http://ww1.sinaimg.cn/large/9ae176d0gw1eup6owb2d1j20g201g3yg.jpg" alt="数据结构说明"></p>
+<p>####四、实验结果</p>
+<p>1.欢迎界面：<br><img src="http://ww4.sinaimg.cn/large/9ae176d0gw1eup70as03sj20it0ca0ug.jpg" alt=""><br>2.主界面：<br><img src="http://ww4.sinaimg.cn/large/9ae176d0gw1eup71bhu96j20it0cawfr.jpg" alt=""><br>3.读取记录：<br><img src="http://ww4.sinaimg.cn/large/9ae176d0gw1eup70w3g90j20it0cawff.jpg" alt=""><br>4.录入信息：<br><img src="http://ww3.sinaimg.cn/large/9ae176d0gw1eup71pd5n5j20it0ca75j.jpg" alt=""><br>5.显示记录：<br><img src="http://ww1.sinaimg.cn/large/9ae176d0gw1eup71xiyh6j20it0ca0ts.jpg" alt=""><br>6.按照设备种类进行统计：<br><img src="http://ww3.sinaimg.cn/large/9ae176d0gw1eup723mclfj20it0caq44.jpg" alt=""><br>7.第一页：<br><img src="http://ww1.sinaimg.cn/large/9ae176d0gw1eup72a1todj20it0ca768.jpg" alt=""><br>8.第二页：<br><img src="http://ww4.sinaimg.cn/large/9ae176d0gw1eup72goobkj20it0ca40h.jpg" alt=""><br>9.第三页：<br><img src="http://ww3.sinaimg.cn/large/9ae176d0gw1eup72qjy1hj20it0caq52.jpg" alt=""><br>10.最后一页：<br><img src="http://ww2.sinaimg.cn/large/9ae176d0gw1eup72zmbn2j20it0ca0ul.jpg" alt=""><br>11.修改设备记录：<br><img src="http://ww2.sinaimg.cn/large/9ae176d0gw1eup73ai9g3j20it0cajse.jpg" alt=""><br>12.修改主界面：<br><img src="http://ww1.sinaimg.cn/large/9ae176d0gw1eup73ihp30j20it0caaba.jpg" alt=""><br>13.删除主界面：<br><img src="http://ww2.sinaimg.cn/large/9ae176d0gw1eup73pcv3uj20it0ca75a.jpg" alt=""><br>14.已经删除：<br><img src="http://ww3.sinaimg.cn/large/9ae176d0gw1eup73x0u10j20it0cajse.jpg" alt=""><br>15.查找主界面：<br><img src="http://ww3.sinaimg.cn/large/9ae176d0gw1eup7435i2tj20it0cajse.jpg" alt=""><br>16.找到：<br><img src="http://ww1.sinaimg.cn/large/9ae176d0gw1eup749e98fj20it0cadgw.jpg" alt=""><br>17.找不到：<br><img src="http://ww3.sinaimg.cn/large/9ae176d0gw1eup74f7xrjj20it0caq3y.jpg" alt=""><br>18.保存界面：<br><img src="http://ww3.sinaimg.cn/large/9ae176d0gw1eup74npisaj20it0cagml.jpg" alt=""></p>
+<p>####五、体会</p>
+<p>在这次的课程设计中，我有了许多收获，首先，通过完成课程设计，我系统的了解链表的相关函数的编写加深了对双向链表、排序法的认识，巩固了课上所学到的知识。<br>    这一次的课设，给我留下印象最深的并不是程序的编写过程，而是前期的准备过程，因为考虑如何做界面的布局，如何实现每个函数的功能花费了我一个月的时间，其间尝试了许多，也失败了许多。可是真正用来写这个程序的时间却不到十天。这让我明白了，对一件事做一个好的正确的规划是使之能够顺利实现的前提，而做规划找方向往往比真正的做一件事更难、更有收获。</p>
+<p>####六、源代码<br>record.h</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div></pre></td><td class="code"><pre><div class="line">#ifndef RECORD_H</div><div class="line">#define RECORD_H</div><div class="line"></div><div class="line"># include &lt;stdio.h&gt;</div><div class="line"># include &lt;stdlib.h&gt;</div><div class="line"># include &lt;string.h&gt;</div><div class="line"># include &lt;ctype.h&gt;</div><div class="line"># include &lt;time.h&gt;</div><div class="line"># include &lt;conio.h&gt;</div><div class="line"># include &lt;Windows.h&gt;</div><div class="line"></div><div class="line">//为设备链表节点申请空间</div><div class="line"># define ASK(p) do&#123;\</div><div class="line">			p = (EQUIP *)malloc(sizeof(EQUIP));\</div><div class="line">			if(p == NULL) &#123;printf(&quot;memory fail!&quot;);exit(-1);&#125;\</div><div class="line">&#125;while(0)</div><div class="line"></div><div class="line">//为设备类型链表节点申请空间</div><div class="line"># define ASP(p) do&#123;\</div><div class="line">			p = (TYPE *)malloc(sizeof(TYPE));\</div><div class="line">			if(p == NULL) &#123;printf(&quot;memory fail!&quot;);exit(-1);&#125;\</div><div class="line">&#125;while(0)</div><div class="line"></div><div class="line"># define LEN sizeof(EQUIP)</div><div class="line"></div><div class="line">typedef struct equipment</div><div class="line">&#123;</div><div class="line">	char idOfEquipment[20];		//设备编号</div><div class="line">	char nameOfEquipment[20];	//设备名称</div><div class="line">	char typeOfEquipment[20];	//设备种类</div><div class="line">	int priceOfEquipment;		//设备单价</div><div class="line">	char purchaseTime[9];		//购进年代</div><div class="line">	char manufacture[20];		//设备厂商</div><div class="line">	int isscrap;				//是否报废</div><div class="line">	char scrapTime[9];			//报废时间</div><div class="line">	struct equipment * next;	//下一个节点</div><div class="line">	struct equipment * before;	//上一个节点</div><div class="line">&#125;EQUIP;</div><div class="line"></div><div class="line">typedef struct type &#123;</div><div class="line">	char nameOfType[20];			//设备种类</div><div class="line">	int cnt;						//种类个数</div><div class="line">	struct type * next;				//下一个节点</div><div class="line">&#125;TYPE;</div><div class="line"></div><div class="line">int count;				//记录条数</div><div class="line"></div><div class="line"></div><div class="line">void welcomeWindows();          //欢迎界面</div><div class="line">void printTime();               //显示系统时间</div><div class="line">void printBox();                //打出方框</div><div class="line">void gotoxy(int x, int y);      //光标定位</div><div class="line">int menu_select();              //选择菜单</div><div class="line">void handle_menu(EQUIP *);      //处理菜单</div><div class="line">void initialization();          //初始化界面</div><div class="line">//文件存取</div><div class="line">void saveFiles(EQUIP *);        //保存记录</div><div class="line">EQUIP * loadFiles(EQUIP *);     //取出记录</div><div class="line"></div><div class="line">EQUIP * infoInput(EQUIP *);     //设备信息录入</div><div class="line">EQUIP * display(EQUIP *);       //显示当前设备信息</div><div class="line">//对设备信息进行操作</div><div class="line">void classify(EQUIP *);         //设备分类</div><div class="line">void destroy(EQUIP *);          //报废设备</div><div class="line">EQUIP * find(EQUIP *);          //查找设备</div><div class="line">EQUIP * sortInPrice(EQUIP *);   //按照单价对设备进行排序</div><div class="line">EQUIP * changeInfo(EQUIP *);    //设备信息修改</div><div class="line">EQUIP * deleteInfo(EQUIP *);    //设备信息删除</div><div class="line"></div><div class="line">#endif</div></pre></td></tr></table></figure>
+<p>record.c:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div></pre></td><td class="code"><pre><div class="line"># include &quot;record.h&quot;</div><div class="line"></div><div class="line">extern int count;</div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">	EQUIP * top;//设备链表头</div><div class="line"></div><div class="line">	top = NULL;</div><div class="line">	count = 0;//开始时记录为0</div><div class="line">	ASK(top);</div><div class="line">	top-&gt;next = NULL;</div><div class="line"></div><div class="line">	welcomeWindows();//加载欢迎界面</div><div class="line"></div><div class="line">	handle_menu(top);//处理菜单</div><div class="line"></div><div class="line">	return 0;</div><div class="line">&#125;</div><div class="line"></div><div class="line">void handle_menu(EQUIP *top)</div><div class="line">&#123;</div><div class="line"></div><div class="line">	for (;;)</div><div class="line">	&#123;</div><div class="line">		switch (menu_select())</div><div class="line">		&#123;</div><div class="line">		case 1:</div><div class="line">			initialization();</div><div class="line">			top = loadFiles(top);//读取记录</div><div class="line">			initialization();</div><div class="line">			break;</div><div class="line"></div><div class="line">		case 2:</div><div class="line">			initialization();</div><div class="line">			top = infoInput(top);//增加记录</div><div class="line">			initialization();</div><div class="line">			break;</div><div class="line"></div><div class="line">		case 3:</div><div class="line">			initialization();</div><div class="line">			top = display(top);//显示记录</div><div class="line">			initialization();</div><div class="line">			break;</div><div class="line"></div><div class="line">		case 4:</div><div class="line">			initialization();</div><div class="line">			top = changeInfo(top);//改变记录</div><div class="line">			initialization();</div><div class="line">			break;</div><div class="line"></div><div class="line">		case 5:</div><div class="line">			initialization();</div><div class="line">			top = deleteInfo(top);//删除记录</div><div class="line">			initialization();</div><div class="line">			break;</div><div class="line"></div><div class="line">		case 6:</div><div class="line">			initialization();</div><div class="line">			top = find(top);//寻找记录</div><div class="line">			if (count != 0)</div><div class="line">			&#123;</div><div class="line">				gotoxy(10, 19);</div><div class="line">				printf(&quot;请按任意键继续&quot;);</div><div class="line">				getchar();</div><div class="line">				getchar();</div><div class="line"></div><div class="line">			&#125;</div><div class="line"></div><div class="line">			initialization();</div><div class="line">			break;</div><div class="line"></div><div class="line">		case 7:</div><div class="line">			initialization();</div><div class="line">			saveFiles(top);//保存记录</div><div class="line">			initialization();</div><div class="line">			break;</div><div class="line"></div><div class="line">		case 8:</div><div class="line">			initialization();</div><div class="line">			gotoxy(10, 15);</div><div class="line">			printf(&quot;本软件由lam开发，最终解释权归lam所有，感谢您的使用。goodbye！\n\n\n\t*\t&quot;);</div><div class="line">			system(&quot;pause&quot;);</div><div class="line">			exit(0);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int menu_select()</div><div class="line">&#123;</div><div class="line">	char input[2];</div><div class="line">	int inputNumber;</div><div class="line"></div><div class="line">	printf(&quot;\n\t*  下面左边数字分别对应相关功能：\n\n\n\n&quot;);</div><div class="line">	printf(&quot;\t*\t1.读取设备记录&quot;);</div><div class="line">	printf(&quot;\t2.增加设备信息&quot;);</div><div class="line">	printf(&quot;\t3.显示设备信息\n&quot;);</div><div class="line">	printf(&quot;\t*\t4.修改设备信息&quot;);</div><div class="line">	printf(&quot;\t5.删除设备信息&quot;);</div><div class="line">	printf(&quot;\t6.查找设备信息\n&quot;);</div><div class="line">	printf(&quot;\t*\t7.保存设备记录&quot;);</div><div class="line">	printf(&quot;\t8.退出&quot;);</div><div class="line">	gotoxy(10, 15);</div><div class="line">	printf(&quot;请输入您的选择：&quot;);</div><div class="line">	scanf(&quot;%s&quot;, input);</div><div class="line">	system(&quot;cls&quot;);</div><div class="line"></div><div class="line">	for (;;)</div><div class="line">	&#123;</div><div class="line">		inputNumber = atoi(input);</div><div class="line">		//如果输入不合法，重新加载界面</div><div class="line">		if (inputNumber &lt; 1 || inputNumber &gt; 8)</div><div class="line">		&#123;</div><div class="line">			initialization();</div><div class="line">			printf(&quot;\n\t*  下面左边数字分别对应相关功能：\n\n\n\n&quot;);</div><div class="line">			printf(&quot;\t*\t1.读取设备记录&quot;);</div><div class="line">			printf(&quot;\t2.增加设备信息&quot;);</div><div class="line">			printf(&quot;\t3.显示设备信息\n&quot;);</div><div class="line">			printf(&quot;\t*\t4.修改设备信息&quot;);</div><div class="line">			printf(&quot;\t5.删除设备信息&quot;);</div><div class="line">			printf(&quot;\t6.查找设备信息\n&quot;);</div><div class="line">			printf(&quot;\t*\t7.保存设备记录&quot;);</div><div class="line">			printf(&quot;\t\t8.退出\n&quot;);</div><div class="line">			gotoxy(10, 15);</div><div class="line">			printf(&quot;输入不合法，请重新输入：&quot;);</div><div class="line">			scanf(&quot;%s&quot;, input);</div><div class="line">		&#125;</div><div class="line">		else</div><div class="line">		&#123;</div><div class="line">			system(&quot;cls&quot;);</div><div class="line">			break;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	return inputNumber;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>changeInformation.c:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div></pre></td><td class="code"><pre><div class="line"># include &quot;record.h&quot;</div><div class="line"></div><div class="line">extern int count;</div><div class="line"></div><div class="line">EQUIP * changeInfo(EQUIP *top)</div><div class="line">&#123;</div><div class="line">	EQUIP *changeEquipment;</div><div class="line">	char choose[10], isScrap;</div><div class="line">	int cn;</div><div class="line">	char ch;</div><div class="line"></div><div class="line">	for (;;)</div><div class="line">	&#123;</div><div class="line"></div><div class="line">		if (count == 0)</div><div class="line">		&#123;</div><div class="line">			printf(&quot;现在没有记录，退出操作！&quot;);</div><div class="line">			gotoxy(10, 19);</div><div class="line">			printf(&quot;请按回车键以继续&quot;);</div><div class="line">			getchar();</div><div class="line">			getchar();</div><div class="line">			return;</div><div class="line">		&#125;</div><div class="line">		changeEquipment = find(top);//修改之前先查找</div><div class="line"></div><div class="line">	change:		printf(&quot;\n\n\t*\t修改该设备以下信息：\n\n&quot;);</div><div class="line">		printf(&quot;\t*\t1.设备编号\n&quot;);</div><div class="line">		printf(&quot;\t*\t2.设备名称\n&quot;);</div><div class="line">		printf(&quot;\t*\t3.设备种类\n&quot;);</div><div class="line">		printf(&quot;\t*\t4.设备单价\n&quot;);</div><div class="line">		printf(&quot;\t*\t5.购进年代\n&quot;);</div><div class="line">		printf(&quot;\t*\t6.生产厂家\n&quot;);</div><div class="line">		printf(&quot;\t*\t7.是否报废\n&quot;);</div><div class="line">		printf(&quot;\t*\t8.退出操作\n&quot;);</div><div class="line">		printf(&quot;\n\t*\t请选择1-8：&quot;);</div><div class="line"></div><div class="line">		scanf(&quot;%s&quot;, choose);</div><div class="line">		while (1)</div><div class="line">		&#123;</div><div class="line">			cn = atoi(choose);</div><div class="line">			if (cn &lt; 1 || cn &gt; 8)//如果输入不合法，重新加载界面重新输入</div><div class="line">			&#123;</div><div class="line">				initialization();</div><div class="line">				changeEquipment = find(top);</div><div class="line">				printf(&quot;\n\n\t*\t修改该设备以下信息：\n\n&quot;);</div><div class="line">				printf(&quot;\t*\t1.设备编号\n&quot;);</div><div class="line">				printf(&quot;\t*\t2.设备名称\n&quot;);</div><div class="line">				printf(&quot;\t*\t3.设备种类\n&quot;);</div><div class="line">				printf(&quot;\t*\t4.设备单价\n&quot;);</div><div class="line">				printf(&quot;\t*\t5.购进年代\n&quot;);</div><div class="line">				printf(&quot;\t*\t6.生产厂家\n&quot;);</div><div class="line">				printf(&quot;\t*\t7.是否报废\n&quot;);</div><div class="line">				printf(&quot;\t*\t8.退出操作\n&quot;);</div><div class="line">				printf(&quot;\n\t*\t请选择1-8：&quot;);</div><div class="line"></div><div class="line">				printf(&quot;\t*\t\t输入出错，重选1-8：&quot;);</div><div class="line">				scanf(&quot;%s&quot;, choose);</div><div class="line">			&#125;</div><div class="line">			else break;</div><div class="line">		&#125;</div><div class="line">		//录入新的数据</div><div class="line">		initialization();</div><div class="line">		switch (cn)</div><div class="line">		&#123;</div><div class="line">		case 1:</div><div class="line">			printf(&quot;请输入新的设备编号:&quot;);</div><div class="line">			scanf(&quot;%s&quot;, changeEquipment-&gt;idOfEquipment);</div><div class="line">			break;</div><div class="line"></div><div class="line">		case 2:</div><div class="line">			printf(&quot;请输入新的设备名称:&quot;);</div><div class="line">			scanf(&quot;%s&quot;, changeEquipment-&gt;nameOfEquipment);</div><div class="line">			break;</div><div class="line"></div><div class="line">		case 3:</div><div class="line">			printf(&quot;请输入新的设备种类:&quot;);</div><div class="line">			scanf(&quot;%s&quot;, changeEquipment-&gt;typeOfEquipment);</div><div class="line">			break;</div><div class="line"></div><div class="line">		case 4:</div><div class="line">			printf(&quot;请输入新的设备价格:&quot;);</div><div class="line">			scanf(&quot;%d&quot;, &amp;changeEquipment-&gt;priceOfEquipment);</div><div class="line">			break;</div><div class="line"></div><div class="line">		case 5:</div><div class="line">			printf(&quot;请输入新的购进年代:&quot;);</div><div class="line">			scanf(&quot;%s&quot;, changeEquipment-&gt;purchaseTime);</div><div class="line">			break;</div><div class="line"></div><div class="line">		case 6:</div><div class="line">			printf(&quot;请输入新的生产厂家:&quot;);</div><div class="line">			scanf(&quot;%s&quot;, changeEquipment-&gt;manufacture);</div><div class="line">			break;</div><div class="line"></div><div class="line">		case 7:</div><div class="line">			printf(&quot;该设备是否已经报废（Y/y）：&quot;);</div><div class="line">			getchar();</div><div class="line">			ch = getchar();</div><div class="line">			if (ch == &apos;Y&apos; || ch == &apos;y&apos;)</div><div class="line">				destroy(changeEquipment);//将该设备改为报废</div><div class="line">			else</div><div class="line">			&#123;</div><div class="line">				changeEquipment-&gt;isscrap = 0;</div><div class="line">				printf(&quot;\n\t*\t该设备已修改为没有报废\n&quot;);</div><div class="line">				gotoxy(10, 19);</div><div class="line">				printf(&quot;请按回车键以继续&quot;);</div><div class="line">				getchar();</div><div class="line">				getchar();</div><div class="line">			&#125;</div><div class="line">			break;</div><div class="line"></div><div class="line">		case 8:</div><div class="line">			return top;</div><div class="line">		&#125;</div><div class="line">		initialization();</div><div class="line">		printf(&quot;\n\t*\t\t1.继续修改本设备信息:\n&quot;);</div><div class="line">		printf(&quot;\n\t*\t\t2.修改其他设备的信息:\n&quot;);</div><div class="line">		printf(&quot;\n\t*\t\t3.退出操作\n&quot;);</div><div class="line">		printf(&quot;\n\n\n\t*\t\t请输入1-3：&quot;);</div><div class="line"></div><div class="line">		scanf(&quot;%s&quot;, choose);</div><div class="line">		while (1)</div><div class="line">		&#123;</div><div class="line">			cn = atoi(choose);</div><div class="line">			if (cn &lt; 1 || cn &gt; 3)//如果输入不合法，重新加载界面并且重新输入</div><div class="line">			&#123;</div><div class="line">				initialization();</div><div class="line">				printf(&quot;\n\t*\t\t1.继续修改本设备信息:\n&quot;);</div><div class="line">				printf(&quot;\n\t*\t\t2.修改其他设备的信息:\n&quot;);</div><div class="line">				printf(&quot;\n\t*\t\t3.退出查找操作\n&quot;);</div><div class="line">				printf(&quot;\n\t*\t\t输入出错，重选1-3：&quot;);</div><div class="line">				scanf(&quot;%s&quot;, choose);</div><div class="line">			&#125;</div><div class="line">			else break;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		initialization();</div><div class="line">		switch (cn)</div><div class="line">		&#123;</div><div class="line">		case 1:</div><div class="line">			goto change;//继续修改本设备，所以跳到找到本设备之后的地方</div><div class="line"></div><div class="line">		case 2:</div><div class="line">			continue;//修改其他设备，所以跳到开始查找设备的地方</div><div class="line"></div><div class="line">		case 3:</div><div class="line">			break;</div><div class="line">		&#125;</div><div class="line">		break;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">void  destroy(EQUIP * destroyEquipment)</div><div class="line">&#123;</div><div class="line">	destroyEquipment-&gt;isscrap = 1;</div><div class="line">	printf(&quot;\n\t*\t请输入报废时间:&quot;);</div><div class="line">	scanf(&quot;%s&quot;, destroyEquipment-&gt;scrapTime);</div><div class="line">	printf(&quot;\n\t*\t该设备已经报废\n&quot;);</div><div class="line">	gotoxy(10, 19);</div><div class="line">	printf(&quot;请按回车键继续&quot;);</div><div class="line">	getchar();</div><div class="line">	getchar();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Classificationmethod.c<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div></pre></td><td class="code"><pre><div class="line"># include &quot;record.h&quot;</div><div class="line"># include &lt;stdio.h&gt;</div><div class="line"></div><div class="line">extern int count;</div><div class="line"></div><div class="line">EQUIP * sortInPrice(EQUIP * top)//按照价格排序</div><div class="line">&#123;</div><div class="line">	EQUIP *pi, *pj, *min, *pahead, *pbehind, *star;//pi,pj是用来指向大循环和小循环的指针，star用来定位</div><div class="line">	int cnt;</div><div class="line">	int i, j;</div><div class="line"></div><div class="line">	cnt = 0;</div><div class="line">	pi = top;</div><div class="line">	while (pi != NULL)//找到链表的节点个数</div><div class="line">	&#123;</div><div class="line">		cnt++;</div><div class="line">		pi = pi-&gt;next;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	for (pi = top, i = 0, star = top-&gt;next;i &lt; cnt - 1;i++, star = star-&gt;next)</div><div class="line">	&#123;</div><div class="line">		min = pi;//查找最小值</div><div class="line">		for (pj = pi-&gt;next, j = i + 1;j &lt; cnt;pj = pj-&gt;next, j++)</div><div class="line">			if (min-&gt;priceOfEquipment &gt; pj-&gt;priceOfEquipment)</div><div class="line">			&#123;</div><div class="line">				min = pj;</div><div class="line">			&#125;</div><div class="line"></div><div class="line">		if (min != pi)</div><div class="line">		&#123;</div><div class="line">			if (i == 0) top = min;</div><div class="line"></div><div class="line">			//在交换之前把pi的前后记录下来</div><div class="line">			pahead = pi-&gt;before;</div><div class="line">			pbehind = pi-&gt;next;</div><div class="line"></div><div class="line">			//把pi指的节点换到min的地方</div><div class="line">			pi-&gt;next = min-&gt;next;</div><div class="line">			if (min-&gt;next != NULL) (min-&gt;next)-&gt;before = pi;//min的后面是NULL，它没有before</div><div class="line">			if (min-&gt;before != pi)</div><div class="line">			&#123;</div><div class="line">				(min-&gt;before)-&gt;next = pi;</div><div class="line">				pi-&gt;before = min-&gt;before;</div><div class="line">			&#125;</div><div class="line"></div><div class="line">			//把min指的节点换到pi的地方</div><div class="line">			min-&gt;before = pahead;</div><div class="line">			if ((pahead != NULL) &amp;&amp; (pahead-&gt;next != NULL))  pahead-&gt;next = min;//i = 0时pahead是NULL,它没有next</div><div class="line">			if (pbehind != min)</div><div class="line">			&#123;</div><div class="line">				pbehind-&gt;before = min;</div><div class="line">				min-&gt;next = pbehind;</div><div class="line">			&#125;</div><div class="line"></div><div class="line">			if (pbehind == min)</div><div class="line">			&#123;</div><div class="line">				min-&gt;next = pi;</div><div class="line">				pi-&gt;before = min;</div><div class="line">			&#125;</div><div class="line"></div><div class="line">		&#125;</div><div class="line">		pi = star;</div><div class="line">	&#125;</div><div class="line">	return top;</div><div class="line">&#125;</div><div class="line"></div><div class="line">void classify(EQUIP *top)</div><div class="line">&#123;</div><div class="line">	TYPE * first, *last, *link;</div><div class="line">	EQUIP * star;</div><div class="line">	int flag;</div><div class="line">	int number = 1;</div><div class="line"></div><div class="line">	star = top;</div><div class="line">	ASP(first);</div><div class="line">	first-&gt;next = NULL;</div><div class="line">	strcpy(first-&gt;nameOfType, star-&gt;typeOfEquipment);</div><div class="line">	first-&gt;cnt = 1;</div><div class="line">	star = top-&gt;next;</div><div class="line">	link = first;</div><div class="line"></div><div class="line">	while (star != NULL)</div><div class="line">	&#123;</div><div class="line">		flag = 0;</div><div class="line">		last = first;</div><div class="line"></div><div class="line">		while (last != NULL)</div><div class="line">		&#123;</div><div class="line">			if (strcmp(star-&gt;typeOfEquipment, last-&gt;nameOfType) == 0)</div><div class="line">			&#123;</div><div class="line">				last-&gt;cnt++;</div><div class="line">				flag = 1;</div><div class="line">				break;</div><div class="line">			&#125;</div><div class="line">			last = last-&gt;next;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		if (flag == 0)</div><div class="line">		&#123;</div><div class="line">			ASP(last);</div><div class="line">			link-&gt;next = last;</div><div class="line">			link = last;</div><div class="line">			link-&gt;next = NULL;</div><div class="line">			strcpy(last-&gt;nameOfType, star-&gt;typeOfEquipment);</div><div class="line">			last-&gt;cnt = 1;</div><div class="line">			last-&gt;next = NULL;</div><div class="line">		&#125;</div><div class="line">		star = star-&gt;next;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	last = first;</div><div class="line">	printf(&quot;   设备种类\t\t\t设备个数\n&quot;);</div><div class="line">	while (last != NULL)</div><div class="line">	&#123;</div><div class="line">		if (number % 14 == 0)</div><div class="line">		&#123;</div><div class="line">			printf(&quot;\n\t*\t\t进入下一页请按回车键\n\t*\t&quot;);</div><div class="line">			getchar();</div><div class="line">			getchar();</div><div class="line">			system(&quot;cls&quot;);</div><div class="line">			printBox();</div><div class="line">			gotoxy(10, 1);</div><div class="line">			printf(&quot;\n\n\t*\t  设备种类\t\t\t设备个数\n&quot;);</div><div class="line">		&#125;</div><div class="line">		printf(&quot;\t*\t%s:\t\t\t    %d\n&quot;, last-&gt;nameOfType, last-&gt;cnt);</div><div class="line">		last = last-&gt;next;</div><div class="line">		number++;</div><div class="line">	&#125;</div><div class="line">	gotoxy(10, 19);</div><div class="line">	printf(&quot;请输入回车键返回&quot;);</div><div class="line">	getchar();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>find_delete.c:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div></pre></td><td class="code"><pre><div class="line"># include &quot;record.h&quot;</div><div class="line"></div><div class="line">extern int count;</div><div class="line"></div><div class="line">EQUIP * find(EQUIP * top)</div><div class="line">&#123;</div><div class="line">	EQUIP  *star;</div><div class="line">	char choose[10];</div><div class="line">	char input[30];</div><div class="line">	int cn, flag;</div><div class="line"></div><div class="line">	flag = 0;</div><div class="line">	if (count == 0)</div><div class="line">	&#123;</div><div class="line">		printf(&quot;现在没有记录，退出操作！&quot;);</div><div class="line">		gotoxy(10, 19);</div><div class="line">		printf(&quot;请按任意键继续&quot;);</div><div class="line">		getchar();</div><div class="line">		getchar();</div><div class="line">		return;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	printf(&quot;\n\t*\t  1.通过设备编号查找\n\n&quot;);</div><div class="line">	printf(&quot;\t*\t  2.通过设备名称查找\n\n&quot;);</div><div class="line">	printf(&quot;\t*\t  3.退出操作\n&quot;);</div><div class="line">	printf(&quot;\n\t*\t请选择1-3：&quot;);</div><div class="line"></div><div class="line">	scanf(&quot;%s&quot;, choose);</div><div class="line"></div><div class="line">	while (1)</div><div class="line">	&#123;</div><div class="line">		cn = atoi(choose);</div><div class="line">		if (cn &lt; 1 || cn &gt; 3)</div><div class="line">		&#123;</div><div class="line">			initialization();</div><div class="line"></div><div class="line">			printf(&quot;\n\t*\t  1.通过设备编号查找\n\n&quot;);</div><div class="line">			printf(&quot;\t*\t  2.通过设备名称查找\n\n&quot;);</div><div class="line">			printf(&quot;\t*\t  3.退出操作\n&quot;);</div><div class="line">			printf(&quot;\n\t*\t请选择1-3：&quot;);</div><div class="line">			printf(&quot;输入出错，重选1-3：&quot;);</div><div class="line">			scanf(&quot;%s&quot;, choose);</div><div class="line">		&#125;</div><div class="line">		else break;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	initialization();</div><div class="line">	switch (cn)</div><div class="line">	&#123;</div><div class="line">	case 1:</div><div class="line">		printf(&quot;\n\t*\t请输入设备代号：&quot;);</div><div class="line">		break;</div><div class="line">	case 2:</div><div class="line">		printf(&quot;\n\t*\t请输入设备名称：&quot;);</div><div class="line">		break;</div><div class="line">	case 3:</div><div class="line">		initialization();</div><div class="line">		return top;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	scanf(&quot;%s&quot;, input);</div><div class="line">	star = top;</div><div class="line">	while (star != NULL)</div><div class="line">	&#123;</div><div class="line">		if ((cn == 1 &amp;&amp; strcmp(input, star-&gt;idOfEquipment) == 0) || (cn == 2 &amp;&amp; strcmp(input, star-&gt;nameOfEquipment) == 0))</div><div class="line">		&#123;</div><div class="line">			initialization();</div><div class="line">			printf(&quot;编号\t名称\t种类\t单价\t购进年代  是否报废 报废时间\n\n&quot;);</div><div class="line">			printf(&quot;\t* %s\t%s\t%s\t%d\t%s  &quot;, star-&gt;idOfEquipment, star-&gt;nameOfEquipment, \</div><div class="line">				star-&gt;typeOfEquipment, star-&gt;priceOfEquipment, star-&gt;purchaseTime);</div><div class="line">			if (star-&gt;isscrap == 1)</div><div class="line">			&#123;</div><div class="line">				printf(&quot;是  %s\n&quot;, star-&gt;scrapTime);</div><div class="line">				/*gotoxy(10, 19);</div><div class="line">				printf(&quot;请按任意键继续&quot;);</div><div class="line">				getchar();//显示当前记录</div><div class="line">				getchar();*/</div><div class="line">			&#125;</div><div class="line">			else</div><div class="line">			&#123;</div><div class="line">				printf(&quot;否  ---\n&quot;);</div><div class="line">				/*gotoxy(10, 19);</div><div class="line">				printf(&quot;请按任意键继续&quot;);</div><div class="line">				getchar();//显示当前记录</div><div class="line">				getchar();*/</div><div class="line">			&#125;</div><div class="line">			flag = 1;</div><div class="line">			break;</div><div class="line">		&#125;</div><div class="line">		else</div><div class="line">			star = star-&gt;next;</div><div class="line"></div><div class="line">	&#125;</div><div class="line">	if (flag != 1)</div><div class="line">	&#123;</div><div class="line">		printf(&quot;\n\t*\t\t没有找到该记录!\n\n&quot;);</div><div class="line">		gotoxy(10, 18);</div><div class="line">		flag = 0;</div><div class="line">	&#125;</div><div class="line">	return top;</div><div class="line">&#125;</div><div class="line"></div><div class="line">EQUIP * deleteInfo(EQUIP *top)</div><div class="line">&#123;</div><div class="line">	char choose[10], input[30];</div><div class="line">	int cn;//转换成int的输入</div><div class="line">	int flag;//标志是否找到</div><div class="line">	EQUIP *old, *star;//指针old指向链表尾，指针star指向当前需要删除的节点</div><div class="line"></div><div class="line">	for (;;)</div><div class="line">	&#123;</div><div class="line">		flag = 1;</div><div class="line">		if (count == 0)</div><div class="line">		&#123;</div><div class="line">			printf(&quot;\n\n\t*\t现在没有记录，退出操作！&quot;);</div><div class="line">			gotoxy(10, 19);</div><div class="line">			printf(&quot;请按任意键继续&quot;);</div><div class="line">			getchar();</div><div class="line">			getchar();</div><div class="line">			return top;</div><div class="line">		&#125;</div><div class="line">		printf(&quot;\n\t*\t\t1.通过设备编号\n&quot;);</div><div class="line">		printf(&quot;\n\t*\t\t2.通过设备名称\n&quot;);</div><div class="line">		printf(&quot;\n\t*\t\t3.退出操作\n&quot;);</div><div class="line">		printf(&quot;\n\n\t*\t\t请选择1-3：&quot;);</div><div class="line"></div><div class="line">		scanf(&quot;%s&quot;, choose);</div><div class="line">		while (1)</div><div class="line">		&#123;</div><div class="line">			cn = atoi(choose);</div><div class="line">			if (cn &lt; 1 || cn &gt; 3)//输入不合法，重新加载界面并且重新输入</div><div class="line">			&#123;</div><div class="line">				initialization();</div><div class="line">				printf(&quot;\n\t*\t\t1.通过设备编号\n&quot;);</div><div class="line">				printf(&quot;\n\t*\t\t2.通过设备名称\n&quot;);</div><div class="line">				printf(&quot;\n\t*\t\t3.退出操作\n&quot;);</div><div class="line"></div><div class="line">				printf(&quot;输入出错，重选1-3：&quot;);</div><div class="line">				scanf(&quot;%s&quot;, choose);</div><div class="line">			&#125;</div><div class="line">			else break;</div><div class="line">		&#125;</div><div class="line">		initialization();</div><div class="line"></div><div class="line">		switch (cn)</div><div class="line">		&#123;</div><div class="line">		case 1:</div><div class="line">			printf(&quot;请输入设备编号：&quot;);</div><div class="line">			break;</div><div class="line"></div><div class="line">		case 2:</div><div class="line">			printf(&quot;请输入设备名称：&quot;);</div><div class="line">			break;</div><div class="line"></div><div class="line">		case 3:</div><div class="line">			printf(&quot;退出操作\n&quot;);</div><div class="line">			return top;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		scanf(&quot;%s&quot;, input);</div><div class="line"></div><div class="line">		old = star = top;//初始时指针都指向链表头</div><div class="line">		while (star != NULL)</div><div class="line">		&#123;</div><div class="line">			if ((cn == 1 &amp;&amp; strcmp(input, star-&gt;idOfEquipment) == 0) || (cn == 2 &amp;&amp; strcmp(input, star-&gt;nameOfEquipment) == 0))</div><div class="line">			&#123;</div><div class="line">				//找到被删除的</div><div class="line">				if (star == top)//如果要删除的是表头，直接丢掉当前top，然后将当前top的下一个设为top</div><div class="line">					top = star-&gt;next;</div><div class="line"></div><div class="line">				else//否则，删除</div><div class="line">					old-&gt;next = star-&gt;next;</div><div class="line"></div><div class="line">				free(star);</div><div class="line">				--count;</div><div class="line">				printf(&quot;\n\t*\t已经删除记录\n&quot;);</div><div class="line">				flag = 0;</div><div class="line">				break;</div><div class="line">			&#125;</div><div class="line">			else</div><div class="line">			&#123;</div><div class="line">				old = star;//链表尾指向star</div><div class="line">				star = star-&gt;next;//因为不是，所以找下一个</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		if (flag != 0)</div><div class="line">		&#123;</div><div class="line">			printf(&quot;\n\t*\t没有找到该记录\n&quot;);</div><div class="line">			flag = 1;</div><div class="line">		&#125;</div><div class="line">		continue;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>input_display.c:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div></pre></td><td class="code"><pre><div class="line"># include &quot;record.h&quot;</div><div class="line"></div><div class="line">extern int count;</div><div class="line"></div><div class="line">EQUIP * display(EQUIP *top)</div><div class="line">&#123;</div><div class="line">	const EQUIP *star;//指针star指向当前显示的节点	</div><div class="line">	int cnt = 1;//记录已经打印的条数，用来换页</div><div class="line">	char input[2];//选择</div><div class="line">	int inputNumber;</div><div class="line"></div><div class="line">	if (count == 0)//记录为0</div><div class="line">	&#123;</div><div class="line"></div><div class="line">		printf(&quot;\n\t*\t现在没有记录\n\t*\t&quot;);</div><div class="line">		gotoxy(10, 19);</div><div class="line">		printf(&quot;请按任意键以继续&quot;);</div><div class="line">		getchar();</div><div class="line">		getchar();</div><div class="line"></div><div class="line">		return;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	printf(&quot;\n\n\n\n\t*\t1.按照设备单价进行排序\n\n&quot;);</div><div class="line">	printf(&quot;\t*\t2.对设备种类进行分类统计\n\n&quot;);</div><div class="line">	printf(&quot;\t*\t3.退出操作\n\n&quot;);</div><div class="line">	printf(&quot;\t*\t请选择1-3:&quot;);</div><div class="line">	scanf(&quot;%s&quot;, input);</div><div class="line">	getchar();//吸收回车键</div><div class="line">	inputNumber = atoi(input);</div><div class="line"></div><div class="line">	for (;;)</div><div class="line">	&#123;</div><div class="line">		inputNumber = atoi(input);</div><div class="line">		if (inputNumber &lt; 1 || inputNumber &gt; 3)//选择不合法时，重新加载界面</div><div class="line">		&#123;</div><div class="line">			initialization();</div><div class="line">			printf(&quot;\n\n\n\n\t*\t1.按照设备单价进行排序\n\n&quot;);</div><div class="line">			printf(&quot;\t*\t2.对设备种类进行分类统计\n\n&quot;);</div><div class="line">			printf(&quot;\t*\t3.退出操作\n\n&quot;);</div><div class="line">			printf(&quot;\n\t*\t输入不合法，请重新输入：&quot;);</div><div class="line">			scanf(&quot;%s&quot;, input);</div><div class="line">			getchar();//吸收回车键</div><div class="line">		&#125;</div><div class="line">		else</div><div class="line">			break;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	initialization();</div><div class="line">	switch (inputNumber)</div><div class="line">	&#123;</div><div class="line">	case 1:</div><div class="line">		top = sortInPrice(top);//按照价格排序（注意此时还未打印）</div><div class="line">		initialization();</div><div class="line">		break;</div><div class="line"></div><div class="line">	case 2:</div><div class="line">		initialization();</div><div class="line">		classify(top);//对记录设备进行分类统计，因为classify函数已经打印了，//所以直接结束当前函数</div><div class="line">		goto classifyEnd;</div><div class="line"></div><div class="line">	case 3:</div><div class="line">		goto classifyEnd;//退出操作，所以直接结束当前函数</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	star = top;//star指针指向当前需打印节点</div><div class="line">	system(&quot;cls&quot;);</div><div class="line">	printf(&quot;--------------------------------------------------------------------------------&quot;);</div><div class="line">	printf(&quot;\n\t现在共有如下%d条记录：\n\n&quot;, count);</div><div class="line">	printf(&quot; 编号\t名称\t    种类  \t单价\t购进年代  生产公司  是否报废 报废时间\n\n&quot;);</div><div class="line"></div><div class="line">	while (star != NULL)</div><div class="line">	&#123;</div><div class="line"></div><div class="line">		if (cnt % 14 == 0)</div><div class="line">		&#123;</div><div class="line">			printf(&quot;\n\t\t\t\t进入下一页请按回车键&quot;);</div><div class="line">			gotoxy(0, 23);</div><div class="line">			printf(&quot;--------------------------------------------------------------------------------&quot;);</div><div class="line">			gotoxy(52, 20);</div><div class="line">			getchar();//接受回车键</div><div class="line">			system(&quot;cls&quot;);</div><div class="line">			printf(&quot;--------------------------------------------------------------------------------&quot;);</div><div class="line">			printf(&quot; 编号\t名称\t    种类  \t单价\t购进年代  生产公司  是否报废 报废时间\n\n&quot;);</div><div class="line">			gotoxy(0, 23);</div><div class="line">			printf(&quot;--------------------------------------------------------------------------------&quot;);</div><div class="line">			gotoxy(0, 4);</div><div class="line">		&#125;</div><div class="line">		printf(&quot; %-7s%-11s%-13s%-8d%-10s%-10s  &quot;, star-&gt;idOfEquipment, star-&gt;nameOfEquipment, \</div><div class="line">			star-&gt;typeOfEquipment, star-&gt;priceOfEquipment, star-&gt;purchaseTime,star-&gt;manufacture);</div><div class="line">		//如果已经报废，打印是并且打印报废时间，否则打印否</div><div class="line">		if (star-&gt;isscrap == 1)</div><div class="line">		&#123;</div><div class="line">			printf(&quot;是     %s\n&quot;, star-&gt;scrapTime);</div><div class="line">		&#125;</div><div class="line">		else</div><div class="line">		&#123;</div><div class="line">			printf(&quot;否       ---\n&quot;);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		star = star-&gt;next;//指针star指向下一个节点</div><div class="line">		cnt++;//已经打印的记录加1</div><div class="line">	&#125;</div><div class="line">	gotoxy(0, 23);</div><div class="line">	printf(&quot;--------------------------------------------------------------------------------&quot;);</div><div class="line">	gotoxy(10, 22);</div><div class="line">	printf(&quot;请输入回车键返回&quot;);</div><div class="line">	getchar();</div><div class="line"></div><div class="line">classifyEnd:return top;//结束当前函数</div><div class="line">&#125;</div><div class="line"></div><div class="line">EQUIP *infoInput(EQUIP *top)</div><div class="line">&#123;</div><div class="line">	EQUIP *old, *star;//指针old指向链表尾，star是指向分配的空间的指针</div><div class="line">	FILE *fp;</div><div class="line">	char ch;</div><div class="line"></div><div class="line">	if ((fp = fopen(&quot;data.txt&quot;, &quot;r+&quot;)) == NULL)</div><div class="line">	&#123;</div><div class="line">		printf(&quot;\n\t*\t还没有建立文件，退出时别忘记存文件。&quot;);</div><div class="line">		Sleep(1000);//延迟一秒，duang！</div><div class="line">		initialization();</div><div class="line">	&#125;</div><div class="line">	else</div><div class="line">	&#123;</div><div class="line">		fclose(fp);</div><div class="line">		if (count == 0)</div><div class="line">		&#123;</div><div class="line">			printf(&quot;\n\t*\t请稍候，取已有文件~~~\n&quot;);</div><div class="line">			top = loadFiles(top);//读取记录文件</div><div class="line">			initialization();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	ASK(star);</div><div class="line">	old = top;</div><div class="line"></div><div class="line">	while (old-&gt;next != NULL)//移动到链表尾为止</div><div class="line">		old = old-&gt;next;</div><div class="line"></div><div class="line">	printf(&quot;存入数据，输入0时结束。\n&quot;);</div><div class="line"></div><div class="line">	//录入设备各项数据</div><div class="line">	--count;</div><div class="line">	do</div><div class="line">	&#123;</div><div class="line">		++count;</div><div class="line">		printf(&quot;\n\t*\t设备编号:&quot;);</div><div class="line">		scanf(&quot;%s&quot;, star-&gt;idOfEquipment);</div><div class="line"></div><div class="line">		if (strcmp(star-&gt;idOfEquipment, &quot;0&quot;) == 0)</div><div class="line">			break;</div><div class="line"></div><div class="line">		printf(&quot;\t*\t设备名称:&quot;);</div><div class="line">		scanf(&quot;%s&quot;, star-&gt;nameOfEquipment);</div><div class="line"></div><div class="line">		printf(&quot;\t*\t设备种类:&quot;);</div><div class="line">		scanf(&quot;%s&quot;, star-&gt;typeOfEquipment);</div><div class="line"></div><div class="line">		printf(&quot;\t*\t设备单价:&quot;);</div><div class="line">		scanf(&quot;%d&quot;, &amp;star-&gt;priceOfEquipment);</div><div class="line"></div><div class="line">		getchar();</div><div class="line">		printf(&quot;\t*\t购进年代:&quot;);</div><div class="line">		gets(star-&gt;purchaseTime);</div><div class="line"></div><div class="line">		printf(&quot;\t*\t生产厂家:&quot;);</div><div class="line">		gets(star-&gt;manufacture);</div><div class="line"></div><div class="line">		printf(&quot;\t*\t是否报废（Y/y）:&quot;);</div><div class="line"></div><div class="line">		ch = getchar();</div><div class="line">		if (ch == &apos;Y&apos; || ch == &apos;y&apos;)</div><div class="line">		&#123;</div><div class="line">			star-&gt;isscrap = 1;</div><div class="line">			printf(&quot;\t*\t报废时间:&quot;);</div><div class="line">			getchar();</div><div class="line">			gets(star-&gt;scrapTime);</div><div class="line">		&#125;</div><div class="line">		else</div><div class="line">			star-&gt;isscrap = 0;</div><div class="line"></div><div class="line">		if (count == 0)</div><div class="line">			top = star;</div><div class="line"></div><div class="line">		old-&gt;next = star;//分配的空间（指针star指向的）作为新的链表尾</div><div class="line">		star-&gt;before = old;//分配的空间（指针star指向的）前面节点是旧的链表尾</div><div class="line">		old = star;//star成为新的链表尾</div><div class="line">		ASK(star);//分配下一个节点空间备用</div><div class="line"></div><div class="line">		initialization();</div><div class="line">	&#125; while (star-&gt;idOfEquipment[0] != &apos;0&apos;);</div><div class="line"></div><div class="line">	old-&gt;next = NULL;</div><div class="line">	top-&gt;before = NULL;</div><div class="line">	free(star);</div><div class="line"></div><div class="line">	return (top);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>sav_load.c:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div></pre></td><td class="code"><pre><div class="line"># include &quot;record.h&quot;</div><div class="line"></div><div class="line">extern int count;</div><div class="line"></div><div class="line">EQUIP *loadFiles(EQUIP *top)</div><div class="line">&#123;</div><div class="line">	FILE *fp;</div><div class="line">	EQUIP *p, *old, *young;</div><div class="line"></div><div class="line">	int cnt = 0;//用来计数</div><div class="line"></div><div class="line">	if (count != 0)</div><div class="line">	&#123;</div><div class="line">		printf(&quot;记录已经读取，请按回车键返回。&quot;);</div><div class="line">		getchar();</div><div class="line">		getchar();</div><div class="line">		return top;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	if ((fp = fopen(&quot;data.txt&quot;, &quot;r+&quot;)) == NULL)</div><div class="line">	&#123;</div><div class="line">		printf(&quot;\n\t*\t\t打不开文件！\n\t*\t&quot;);</div><div class="line">		exit(1);</div><div class="line">	&#125;</div><div class="line">	printf(&quot;\n\t*\t\t取文件~~~\n&quot;);</div><div class="line"></div><div class="line">	ASK(p);</div><div class="line">	top = p;</div><div class="line">	old = top;</div><div class="line">	top-&gt;before = NULL;</div><div class="line"></div><div class="line">	while (!feof(fp))</div><div class="line">	&#123;</div><div class="line">		if (cnt == 1) young = top;</div><div class="line">		if (1 != fread(p, LEN, 1, fp)) break;</div><div class="line">		count++;</div><div class="line">		ASK(p-&gt;next);</div><div class="line">		old = p-&gt;next;</div><div class="line"></div><div class="line">		if (cnt &gt;= 1)</div><div class="line">		&#123;</div><div class="line">			p-&gt;before = young;</div><div class="line">			young = young-&gt;next;</div><div class="line">		&#125;</div><div class="line">		old = p;</div><div class="line">		p = p-&gt;next;</div><div class="line">		cnt++;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	old-&gt;next = NULL;</div><div class="line">	fclose(fp);</div><div class="line">	printf(&quot;\t*\t\t取入%d条记录。\n\n&quot;, count);</div><div class="line">	gotoxy(10, 18);</div><div class="line">	Sleep(1500);</div><div class="line"></div><div class="line">	return (top);</div><div class="line">&#125;</div><div class="line"></div><div class="line">void saveFiles(EQUIP * top)</div><div class="line">&#123;</div><div class="line">	const EQUIP *p;</div><div class="line">	FILE *fp;</div><div class="line"></div><div class="line">	if (count == 0)</div><div class="line">	&#123;</div><div class="line">		printf(&quot;\t*\t\t没有记录可存！\n&quot;);</div><div class="line">		return;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	if ((fp = fopen(&quot;data.txt&quot;, &quot;w+&quot;)) == NULL)</div><div class="line">	&#123;</div><div class="line">		printf(&quot;\t*\t\t不能打开文件！\n&quot;);</div><div class="line">		exit(1);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	printf(&quot;\n\t*\t\t存入文件\n&quot;);</div><div class="line">	p = top;</div><div class="line"></div><div class="line">	while (p)</div><div class="line">	&#123;</div><div class="line">		fwrite(p, LEN, 1, fp);</div><div class="line">		p = p-&gt;next;</div><div class="line">	&#125;</div><div class="line">	fclose(fp);</div><div class="line">	printf(&quot;\t*\t\t%d条记录已经存入文件.&quot;, count);</div><div class="line">	gotoxy(10, 19);</div><div class="line">	printf(&quot;请按任意键继续&quot;);</div><div class="line">	getchar();</div><div class="line">	getchar();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>welcome.c:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div></pre></td><td class="code"><pre><div class="line"># include&quot;record.h&quot;</div><div class="line"></div><div class="line">void printTime()</div><div class="line">&#123;</div><div class="line">	struct tm *ptr;</div><div class="line">	time_t it;</div><div class="line">	it = time(NULL);</div><div class="line">	ptr = localtime(&amp;it);</div><div class="line">	printf(&quot;%4d年%02d月%02d日 %d:%d\t*\n&quot;, \</div><div class="line">		ptr-&gt;tm_year + 1900, ptr-&gt;tm_mon + 1, ptr-&gt;tm_mday, ptr-&gt;tm_hour, ptr-&gt;tm_min);</div><div class="line">&#125;</div><div class="line"></div><div class="line">void welcomeWindows()</div><div class="line">&#123;</div><div class="line">	printf(&quot;\t*****************************************************************\n&quot;);</div><div class="line">	printf(&quot;\t*\t\t\t\t\t\t\t\t*\n&quot;);</div><div class="line">	printf(&quot;\t*\t\t     欢迎使用设备管理系统    \t\t\t*\n&quot;);</div><div class="line">	printf(&quot;\t*\t\t\t\t\t\t\t\t*\n&quot;);</div><div class="line">	printf(&quot;\t*\t\t\t\t\t&quot;);</div><div class="line">	printTime();</div><div class="line">	printf(&quot;\t*\t\t\t\t\t\t\t\t*\n&quot;);</div><div class="line">	printf(&quot;\t*\t\t\t\t\t\t\t\t*\n&quot;);</div><div class="line">	printf(&quot;\t*****************************************************************\n&quot;);</div><div class="line">	printf(&quot;\t*\t\t\t\t\t\t\t\t*\n&quot;);</div><div class="line">	printf(&quot;\t* 说明：本软件由 广东财经大学14级计算机实验班林浩阳 开发，\t*\n&quot;);</div><div class="line">	printf(&quot;\t*\t该软件只用于交流，无任何商业用途。\t\t\t*\n&quot;);</div><div class="line">	printf(&quot;\t*\t\t\t\t\t\t\t\t*\n&quot;);</div><div class="line">	printf(&quot;\t*\t本软件无毒，无插件！请放心使用！如果因为用户使用不\t*\n&quot;);</div><div class="line">	printf(&quot;\t*\t当造成的任何系统问题概予本软件开发人员无关。\t\t*\n&quot;);</div><div class="line">	printf(&quot;\t*\t\t\t\t\t\t\t\t*\n&quot;);</div><div class="line">	printf(&quot;\t*\t\t\t\t\t\t\t\t*\n&quot;);</div><div class="line">	printf(&quot;\t*\t同意本说明请输入回车键继续，否则请关闭本软件。\t\t*\n&quot;);</div><div class="line">	printf(&quot;\t*\t\t\t\t\t\t\t\t*\n&quot;);</div><div class="line">	printf(&quot;\t*\t\t\t\t\t\t\t\t*\n&quot;);</div><div class="line">	printf(&quot;\t*\t\t\t\t\t\t\t\t*\n&quot;);</div><div class="line">	printf(&quot;\t*\t\t\t\t\t\t\t\t*\n&quot;);</div><div class="line">	printf(&quot;\t*\t\t\t\t\t\t\tLam\t*\n&quot;);</div><div class="line">	printf(&quot;\t*****************************************************************\n&quot;);</div><div class="line">	gotoxy(10, 20);</div><div class="line">	getchar();</div><div class="line">	system(&quot;cls&quot;);</div><div class="line">	gotoxy(17, 13);</div><div class="line">	printf(&quot;正在进入系统，请稍候···&quot;);</div><div class="line">	Sleep(1000);</div><div class="line">	initialization();</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">void printBox()</div><div class="line">&#123;</div><div class="line">	printf(&quot;\t*****************************************************************\n&quot;);</div><div class="line">	printf(&quot;\t*\t\t\t\t\t\t\t\t*\n&quot;);</div><div class="line">	printf(&quot;\t*\t\t\t\t\t\t\t\t*\n&quot;);</div><div class="line">	printf(&quot;\t*\t\t\t\t\t\t\t\t*\n&quot;);</div><div class="line">	printf(&quot;\t*\t\t\t\t\t\t\t\t*\n&quot;);</div><div class="line">	printf(&quot;\t*\t\t\t\t\t\t\t\t*\n&quot;);</div><div class="line">	printf(&quot;\t*\t\t\t\t\t\t\t\t*\n&quot;);</div><div class="line">	printf(&quot;\t*\t\t\t\t\t\t\t\t*\n&quot;);</div><div class="line">	printf(&quot;\t*\t\t\t\t\t\t\t\t*\n&quot;);</div><div class="line">	printf(&quot;\t*\t\t\t\t\t\t\t\t*\n&quot;);</div><div class="line">	printf(&quot;\t*\t\t\t\t\t\t\t\t*\n&quot;);</div><div class="line">	printf(&quot;\t*\t\t\t\t\t\t\t\t*\n&quot;);</div><div class="line">	printf(&quot;\t*\t\t\t\t\t\t\t\t*\n&quot;);</div><div class="line">	printf(&quot;\t*\t\t\t\t\t\t\t\t*\n&quot;);</div><div class="line">	printf(&quot;\t*\t\t\t\t\t\t\t\t*\n&quot;);</div><div class="line">	printf(&quot;\t*\t\t\t\t\t\t\t\t*\n&quot;);</div><div class="line">	printf(&quot;\t*\t\t\t\t\t\t\t\t*\n&quot;);</div><div class="line">	printf(&quot;\t*\t\t\t\t\t\t\t\t*\n&quot;);</div><div class="line">	printf(&quot;\t*\t\t\t\t\t\t\t\t*\n&quot;);</div><div class="line">	printf(&quot;\t*\t\t\t\t\t\t\t\t*\n&quot;);</div><div class="line">	printf(&quot;\t*\t\t\t\t\t\t\t\t*\n&quot;);</div><div class="line">	printf(&quot;\t*\t\t\t\t\t\t\t\t*\n&quot;);</div><div class="line">	printf(&quot;\t*****************************************************************\n&quot;);</div><div class="line">	gotoxy(10, 1);</div><div class="line">&#125;</div><div class="line"></div><div class="line">void gotoxy(int x, int y) //在VS下使用gotoxy函数  </div><div class="line">&#123;</div><div class="line">	CONSOLE_SCREEN_BUFFER_INFO         csbiInfo;</div><div class="line">	HANDLE     hConsoleOut;</div><div class="line"></div><div class="line">	hConsoleOut = GetStdHandle(STD_OUTPUT_HANDLE);</div><div class="line">	GetConsoleScreenBufferInfo(hConsoleOut, &amp;csbiInfo);</div><div class="line"></div><div class="line">	csbiInfo.dwCursorPosition.X = x;</div><div class="line">	csbiInfo.dwCursorPosition.Y = y;</div><div class="line">	SetConsoleCursorPosition(hConsoleOut, csbiInfo.dwCursorPosition);</div><div class="line">&#125;</div><div class="line"></div><div class="line">void initialization()</div><div class="line">&#123;</div><div class="line">	system(&quot;cls&quot;);</div><div class="line">	printBox();</div><div class="line">	gotoxy(10, 1);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/课程设计/" rel="tag"># 课程设计</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/07/30/第二章-小结/" rel="next" title="第二章 小结">
+                <i class="fa fa-chevron-left"></i> 第二章 小结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/08/10/第一首指弹曲：卡农/" rel="prev" title="第一首指弹曲：卡农">
+                第一首指弹曲：卡农 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/08/02/大一下的课程设计：设备管理系统/"
+           data-title="大一下的课程设计：设备管理系统" data-url="http://yoursite.com/2015/08/02/大一下的课程设计：设备管理系统/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Lam" />
+          <p class="site-author-name" itemprop="name">Lam</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lamaaa" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/linhaoyang0" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://facebook.com/linhaoyang0" target="_blank" title="Facebook">
+                  
+                    <i class="fa fa-fw fa-facebook"></i>
+                  
+                  Facebook
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/Haoyang_Lam" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lam</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"lamaaa"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
