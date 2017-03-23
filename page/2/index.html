@@ -313,6 +313,170 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/07/31/Ubuntu配置Apache虚拟主机/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lam">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="未完的梦">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/31/Ubuntu配置Apache虚拟主机/" itemprop="url">
+                  Ubuntu系统配置Apache虚拟主机
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-31T12:39:26+08:00">
+                2016-07-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Technology/" itemprop="url" rel="index">
+                    <span itemprop="name">Technology</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Technology/Tutorial/" itemprop="url" rel="index">
+                    <span itemprop="name">Tutorial</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/07/31/Ubuntu配置Apache虚拟主机/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/31/Ubuntu配置Apache虚拟主机/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>假设在我的网站上www.linhaoyang.com建立了三个系统，分别是系统1，系统2和系统3。对应的二级域名分别是1.linhaoyang.com,2.linhaoyang.com和3.linhaoyang.com。<br>首先建立一个根目录文件<code>wwwRoot</code>,再分别建立三个目录对应这三个系统。<br><code>sudo mkdir -p wwwRoot/{1,2,3}</code><br>在我的服务器上，apache的配置文件在<code>/etc/apache2/</code>下，而虚拟主机的配置文件则是在<code>apache2/sites-avaiable/</code>中<br><img src="http://7xs8z2.com1.z0.glb.clouddn.com/sites-avaiable.png" alt="sites-avaiable"><br>其中，<code>000-default.conf</code>文件是apache的默认虚拟主机配置文件，于是我们只要将这个文件复制修改，就可以得到其中虚拟主机的配置文件。<br><code>sudo cp 000-default.conf 1.conf</code><br><code>sudo cp 000-default.conf 2.conf</code><br><code>sudo cp 000-default.conf 3.conf</code><br>然后分别修改文件,添加<code>ServerName</code>和修改<code>DocumentRoot</code>：<br><code>sudo vim 1.conf</code><br><img src="http://7xs8z2.com1.z0.glb.clouddn.com/1.conf.png" alt="1.conf"><br>其他两个文件<code>2.conf</code>和<code>3.conf</code>也是做类似的修改。<br>修改完之后，我们知道，这只是apache可用的虚拟主机，而我们还需要启用这三个虚拟主机。需要切换到<code>sites-enabled</code>文件中建立软链接。即：<br><code>sudo cd ../sites-enabled/</code><br><code>sudo ln -s ../sites-avaiable/1.conf 1.conf</code><br><code>sudo ln -s ../sites-avaiable/2.conf 2.conf</code><br><code>sudo ln -s ../sites-avaiable/3.conf 3.conf</code><br><img src="http://7xs8z2.com1.z0.glb.clouddn.com/sites-enabled.png" alt="sites-enabled"><br>这样我们就建立了三台虚拟主机，但是它并不会马上用于配置中，我们还需要启用配置，然后再重启apache。<br>启用配置：<br><code>sudo a2ensite /etc/apache2/sites-avaiable/1.conf</code><br><code>sudo a2ensite /etc/apache2/sites-avaiable/2.conf</code><br><code>sudo a2ensite /etc/apache2/sites-avaiable/3.conf</code><br>重启apache：<br><code>sudo service apache2 restart</code><br>此时若是访问这三个网站，便会发现403Forbidden的错误，很明显这是权限问题。在<code>/etc/apache2/appache2.conf</code>文件中添加这些配置即可解决。<br><code>sudo vim /etc/apache2/apache2.conf</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;Directory /var/wwwRoot/1/&gt;</div><div class="line">    Options Indexes FollowSymLinks</div><div class="line">	AllowOverride None</div><div class="line">	Require all granted</div><div class="line">&lt;/Directory&gt;</div><div class="line"></div><div class="line">&lt;Directory /var/wwwRoot/2/&gt;</div><div class="line">	Options Indexes FollowSymLinks</div><div class="line">	AllowOverride None</div><div class="line">	Require all granted</div><div class="line">&lt;/Directory&gt;</div><div class="line"></div><div class="line">&lt;Directory /var/wwwRoot/3/&gt;</div><div class="line">	Options Indexes FollowSymLinks</div><div class="line">	AllowOverride None</div><div class="line">	Require all granted</div><div class="line">&lt;/Directory&gt;</div></pre></td></tr></table></figure></p>
+<p>同时要保证<code>/var/wwwRoot/1/</code>,<code>/var/wwwRoot/2/</code>和<code>/var/wwwRoot/3/</code>三个文件夹都具有755的权限即可。<br>最后再次重启apache便大功告成。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+      
+    
+      
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/07/31/Ubuntu系统LAMP环境配置/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1274,8 +1438,6 @@
     
       
     
-      
-    
   </section>
 
   
@@ -1325,7 +1487,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-count">40</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>

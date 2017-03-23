@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="C++ Primer 笔记," />
+  <meta name="keywords" content="面试," />
 
 
 
@@ -89,16 +89,70 @@
 
 
 
-<meta name="description" content="这篇文章都是一些关于C++的基本名词，本来想直接上网找到C++ Primer电子版copy一份的，后来想想，不如我把这些名词过一遍吧。然后，然后···">
+<meta name="description" content="数据库（答得不好）
+索引是什么数据结构，是如何实现的？
+乐观锁和悲观锁是什么？有什么作用？
+Mysql事务的特性？
+
+操作系统（一半一半）
+进程与线程的区别？
+死锁是什么？如何避免死锁？
+
+Java（太久了，忘光了）
+Object对象默认方法有哪些？
+
+Spring（答得较好）
+IOC、AOP是什么？有什么作用？
+
+数据结构（不知道在说什么？？？）
+实现一个二叉树的深度遍历算法？
+
+计算机网络（答">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第二章 小结">
-<meta property="og:url" content="http://yoursite.com/2015/07/30/第二章-小结/index.html">
+<meta property="og:title" content="蚂蚁金服电面心得">
+<meta property="og:url" content="http://yoursite.com/2017/03/23/蚂蚁金服电面心得/index.html">
 <meta property="og:site_name" content="未完的梦">
-<meta property="og:description" content="这篇文章都是一些关于C++的基本名词，本来想直接上网找到C++ Primer电子版copy一份的，后来想想，不如我把这些名词过一遍吧。然后，然后···">
-<meta property="og:updated_time" content="2016-08-27T07:27:56.761Z">
+<meta property="og:description" content="数据库（答得不好）
+索引是什么数据结构，是如何实现的？
+乐观锁和悲观锁是什么？有什么作用？
+Mysql事务的特性？
+
+操作系统（一半一半）
+进程与线程的区别？
+死锁是什么？如何避免死锁？
+
+Java（太久了，忘光了）
+Object对象默认方法有哪些？
+
+Spring（答得较好）
+IOC、AOP是什么？有什么作用？
+
+数据结构（不知道在说什么？？？）
+实现一个二叉树的深度遍历算法？
+
+计算机网络（答">
+<meta property="og:updated_time" content="2017-03-23T02:48:02.504Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="第二章 小结">
-<meta name="twitter:description" content="这篇文章都是一些关于C++的基本名词，本来想直接上网找到C++ Primer电子版copy一份的，后来想想，不如我把这些名词过一遍吧。然后，然后···">
+<meta name="twitter:title" content="蚂蚁金服电面心得">
+<meta name="twitter:description" content="数据库（答得不好）
+索引是什么数据结构，是如何实现的？
+乐观锁和悲观锁是什么？有什么作用？
+Mysql事务的特性？
+
+操作系统（一半一半）
+进程与线程的区别？
+死锁是什么？如何避免死锁？
+
+Java（太久了，忘光了）
+Object对象默认方法有哪些？
+
+Spring（答得较好）
+IOC、AOP是什么？有什么作用？
+
+数据结构（不知道在说什么？？？）
+实现一个二叉树的深度遍历算法？
+
+计算机网络（答">
 
 
 
@@ -126,13 +180,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2015/07/30/第二章-小结/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/03/23/蚂蚁金服电面心得/"/>
 
 
 
 
 
-  <title> 第二章 小结 | 未完的梦 </title>
+  <title> 蚂蚁金服电面心得 | 未完的梦 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -311,7 +365,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/07/30/第二章-小结/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/23/蚂蚁金服电面心得/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lam">
@@ -332,7 +386,7 @@
             
             
               
-                第二章 小结
+                蚂蚁金服电面心得
               
             
           </h2>
@@ -347,8 +401,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-07-30T14:50:16+08:00">
-                2015-07-30
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-23T10:43:14+08:00">
+                2017-03-23
               </time>
             
 
@@ -370,19 +424,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Technology/" itemprop="url" rel="index">
-                    <span itemprop="name">Technology</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Technology/C/" itemprop="url" rel="index">
-                    <span itemprop="name">C++</span>
+                  <a href="/categories/Essay/" itemprop="url" rel="index">
+                    <span itemprop="name">Essay</span>
                   </a>
                 </span>
 
@@ -399,8 +442,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2015/07/30/第二章-小结/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/30/第二章-小结/" itemprop="commentCount"></span>
+                <a href="/2017/03/23/蚂蚁金服电面心得/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/23/蚂蚁金服电面心得/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -426,82 +469,40 @@
       
 
       
-        <p>这篇文章都是一些关于C++的基本名词，本来想直接上网找到C++ Primer电子版copy一份的，后来想想，不如我把这些名词过一遍吧。然后，然后···<br><a id="more"></a><br>我就敲了几个钟，敲得我腰酸背痛的…</p>
-<p>以下纯手打，可能错误（或许不少，请以专业资料为准）</p>
-<p><strong>地址（address）</strong>是一个数字，根据它可以找到内存中的一个字节。</p>
-<p><strong>别名声明（alias declaration）</strong>为另一种类型定义同一个同义词：使用“名字=类型”的格式将名字作为该类型的同义词。</p>
-<p><strong>算术类型（arithmetic type）</strong>布尔值、字符、整数、浮点数等内置类型。</p>
-<p><strong>数组（array）</strong>是一种数据结构，存放着一组未命名的对象，可以通过索引来访问这些对象。</p>
-<p><strong>auto</strong>是一个类型说明符，通过变量的初始值来推断变量的类型。</p>
-<p><strong>基本类型（base type）</strong>是类型说明符，可以用const修饰，在声明语句中位于声明符之前。基本类型提供了最常见的数据类型，以此为基础构建声明符。</p>
-<p><strong>绑定（bind）</strong>令某个名字与给定的实体关联在一起，使用改名字也就是使用该实体。例如，引用就是将某个名字与某个对象绑定在一起。</p>
-<p><strong>字节（byte）</strong>内存中可寻址的最小单元，大多数机器的字节占8位</p>
-<p><strong>类成员（class member）</strong>类的组成部分。</p>
-<p><strong>复合类型（compound type）</strong>是一种类型，它的定义以其他类型为基础。</p>
-<p><strong>const</strong>是一种类型修饰符，用于说明永不改变的对象。const对象一旦定义就无法再赋新值，所以必须初始化。</p>
-<p><strong>常量指针（const pointer）</strong>是一种指针，它的值永不改变。</p>
-<p><strong>常量引用（const reference）</strong>是一种习惯叫法，含义是指向常量的引用。</p>
-<p><strong>常量表达式（const expression）</strong>能在编译时计算并获取结果的表达式。</p>
-<p><strong>constexpr</strong>是一种函数，用于代表一条常量表达式。</p>
-<p><strong>转化（conversion）</strong>一种类型的值转变成另一种类型值的过程。C++语言支持内置类型之间的转换。</p>
-<p><strong>数据成员（data member）</strong>组成对象的数据元素，类的每次对象都有类的数据成员的一份拷贝。数据成员可以在类内部声明的同时初始化。</p>
-<p><strong>声明（declaration）</strong>声称存在一个变量、函数或是别处定义的类型。名字必须在定义或声明之后才能使用。</p>
-<p><strong>声明符（declarator）</strong>是声明的一部分，包括被定义的名字和类型修饰符，其中类型修饰符可以有也可以没有。</p>
-<p><strong>decltype</strong>是一个类型说明符，从变量或表达式推断得到类型。</p>
-<p><strong>默认初始化（default initialization）</strong>当对象未被显示地赋予初值时执行的初始化行为。由类本身负责执行的类对象的初始化行为。全局作用域的内置类型对象初始化为0；局部作用域的对象未被初始化即拥有未定义的值。</p>
-<p><strong>定义（definition）</strong>为某一特定类型的变量申请存储空间，可以选择初始化该变量。名字必须在定义或声明之后才能使用。</p>
-<p><strong>转义序列（escape sequence）</strong>字符特别是那些不可打印字符的替代形式。转义以反斜线开头，后面紧跟一个字符，或者不多于3个八进制数字，或者字母x加上1个十六进制数。</p>
-<p><strong>全局作用域（global scope）</strong>位于其他所有作用域之外的作用域。</p>
-<p><strong>头文件保护符（header guard）</strong>使用预处理变量以防止被某个文件重复包含。</p>
-<p><strong>标识符（identifier）</strong>组成名字的字符序列，标识符对大小写敏感。</p>
-<p><strong>类内初始值（in-class-initializer）</strong>在声明类的数据成员同时提供的初始值，必须置于右侧或花括号内。</p>
-<p><strong>被初始化（initialized）</strong>变量在定义的同时被赋予初始值，变量一般都应该被初始化。</p>
-<p><strong>内层作用域（inner scope）</strong>嵌套在其他作用域内的作用域。</p>
-<p><strong>整型（integral type）</strong>参见算数类型。</p>
-<p><strong>列表初始化（list initialization）</strong>利用花括号把一个或多个初始值放在一起的初始化形式。</p>
-<p><strong>字面值（literal）</strong>是一个不能改变的值，如数字、字符、字符串等。单引号内的是字符字面值，双引号内的是字符串字面值。</p>
-<p><strong>局部作用域（local scope）</strong>是块作用域的习惯叫法。</p>
-<p><strong>底层const（low-level-const）</strong>一个不属于顶层的const，类型如果由底层常量定义，则不能忽略。</p>
-<p><strong>成员（member）</strong>类的组成部分。</p>
-<p><strong>不可打印字符（nonprintable character）</strong>不具有可见形式的字符，如控制符、退格、换行符等。</p>
-<p><strong>空指针（null pointer）</strong>值为0的指针，空指针合法但是不指向任何对象。</p>
-<p><strong>nullptr</strong>是表示空指针的字面值常量。</p>
-<p><strong>对象（object）</strong>是内存的一块区域，具有某种类型，变量是命名了的对象。</p>
-<p><strong>外层作用域（outer scope）</strong>嵌套着别的作用域的作用域。</p>
-<p><strong>指针（pointer）</strong>是一个对象，存放着某个对象的地址，或者某个对象存储区域之后的下一地址，或者0。</p>
-<p><strong>指向常量的指针（pointer to const）</strong>是一个指针，存放着某个常量对象的地址。指向常量的指针不能用来改变它所指对象的值。</p>
-<p><strong>预处理器（preprocessor）</strong>在C++编译过程中执行的一段程序。</p>
-<p><strong>预处理变量（preprocessor variable）</strong>由预处理器管理的变量。在程序编译之前，预处理器负责将程序中的预处理器变量替换成它的真实值。</p>
-<p><strong>引用（reference）</strong>是某个对象的别名。</p>
-<p><strong>对常量的引用（reference to const）</strong>是一个引用，不能用来改变它所绑定对象的值。对常量的引用可以绑定常量对象，或者非常量对象，或者表达式的结果。</p>
-<p><strong>作用域（scope）</strong>是程序的一部分，在其中某些名字有意义。C++有几级作用域：</p>
-<p><strong>全局（global）</strong>——名字定义在所有其他作用域之外。</p>
-<p><strong>类（class）</strong>——名字定义在类内部。</p>
-<p><strong>命名空间（namespace）</strong>——名字定义在命名空间内部。</p>
-<p><strong>块（block）</strong>——名字定义在块内部。名字从声明的位置开始直至声明语句所在的作用域末端为止都是可用的。</p>
-<p><strong>分离式变异（separate compilation）</strong>把程序分割为多个单独文件的能力。</p>
-<p><strong>带符号类型（signed）</strong>保存正数、负数或0的整型。</p>
-<p><strong>字符串（string）</strong>是一种库类型，表示可变长字符序列。</p>
-<p><strong>struct</strong>是一个关键字，用于定义类。</p>
-<p><strong>临时值（temporary）</strong>编译器在计算表达式结果时创建的无名对象。为某表达式创建了一个临时值，则此临时值将值存在直到包含该表达式的最大的表达式计算完成为止。</p>
-<p><strong>顶层const（top-level const）</strong>是一个const，规定某对象的值不能改变。</p>
-<p><strong>类型别名（type alias）</strong>是一个名字，是另外一个类型的同义词，通过关键字typedef或别名声明语句来定义。</p>
-<p><strong>类型检查（type checking）</strong>是一个过程，编译器检查程序使用某给定类型对象的方式与该类型是否一致。</p>
-<p><strong>类型说明符（type specifier）</strong>类型的名字。</p>
-<p><strong>typedef</strong>为某类型定义一个别名。当关键字typedef作为声明的基本类型出现时，声明中定义的名字就是类型名。</p>
-<p><strong>未定义（undefined）</strong>即C++语言没有明确规定的情况。无论是否有意为之，未定义行为都可能引发难以追踪的运行时错误、安全问题和可移植性问题。</p>
-<p><strong>未初始化（uninitialized）</strong>变量已定义但未被赋予初始值。一般来说，试图访问未初始化变量的值将引发未定义行为。</p>
-<p><strong>无符号类型（unsigned）</strong>保存大于等于0的类型。</p>
-<p><strong>变量（variable）</strong>命名的对象或引用。C++语言要求变量要先声明后使用。</p>
-<p><strong>void*</strong>可以指向任意非常量的指针类型，不能执行解引用操作。</p>
-<p><strong>void</strong>类型是一种有特殊用处的类型，既无操作也无值。不能定义一个void类型的变量。</p>
-<p><strong>字（word）</strong>在指定机器上进行整数运算的自然单位。一般来说，字的空间足够存放地址。32位机器上的字通常占据4个字节。</p>
-<p><strong>&amp;运算符（&amp; operator）</strong>取地址运算符。</p>
-<p><strong>*运算符（* operator）</strong>解引用运算符。解引用一个指针将返回该指针所指的对象，为解引用的结果赋值也就是为指针所指的对象赋值。</p>
-<p><strong>#define</strong>是一条预处理指令，用于定义一个预处理变量。</p>
-<p><strong>#endif</strong>是一条预处理指令，用于结束一个#ifdef或#ifndef区域</p>
-<p><strong>#ifdef</strong>是一条预处理指令，用于判断给定的变量是否已经定义。</p>
-<p><strong>#ifndef</strong>是一条预处理指令，用于判断给定的变量是否尚未定义。</p>
+        <h2 id="数据库（答得不好）"><a href="#数据库（答得不好）" class="headerlink" title="数据库（答得不好）"></a>数据库（答得不好）</h2><ol>
+<li>索引是什么数据结构，是如何实现的？</li>
+<li>乐观锁和悲观锁是什么？有什么作用？</li>
+<li>Mysql事务的特性？</li>
+</ol>
+<h2 id="操作系统（一半一半）"><a href="#操作系统（一半一半）" class="headerlink" title="操作系统（一半一半）"></a>操作系统（一半一半）</h2><ol>
+<li>进程与线程的区别？</li>
+<li>死锁是什么？如何避免死锁？</li>
+</ol>
+<h2 id="Java（太久了，忘光了）"><a href="#Java（太久了，忘光了）" class="headerlink" title="Java（太久了，忘光了）"></a>Java（太久了，忘光了）</h2><ol>
+<li>Object对象默认方法有哪些？</li>
+</ol>
+<h2 id="Spring（答得较好）"><a href="#Spring（答得较好）" class="headerlink" title="Spring（答得较好）"></a>Spring（答得较好）</h2><ol>
+<li>IOC、AOP是什么？有什么作用？</li>
+</ol>
+<h2 id="数据结构（不知道在说什么？？？）"><a href="#数据结构（不知道在说什么？？？）" class="headerlink" title="数据结构（不知道在说什么？？？）"></a>数据结构（不知道在说什么？？？）</h2><ol>
+<li>实现一个二叉树的深度遍历算法？</li>
+</ol>
+<h2 id="计算机网络（答得较好，基本都答出了）"><a href="#计算机网络（答得较好，基本都答出了）" class="headerlink" title="计算机网络（答得较好，基本都答出了）"></a>计算机网络（答得较好，基本都答出了）</h2><ol>
+<li>OSI七层模型分别是什么？</li>
+<li>七层模型与四层模型的区别？</li>
+<li>HTTP协议与TCP协议的区别？</li>
+<li>TCP协议三次握手的过程？</li>
+<li>HTTP协议和TCP协议分别属于哪一层？</li>
+<li>GET和POST的区别？</li>
+</ol>
+<h2 id="项目（一般）"><a href="#项目（一般）" class="headerlink" title="项目（一般）"></a>项目（一般）</h2><ol>
+<li>具体介绍一个最熟悉，参与度比较高的一个项目，讲诉自己扮演的角色以及项目具体用到的技术。</li>
+</ol>
+<h2 id="面试官根据回答和简历现场出题（给跪了）"><a href="#面试官根据回答和简历现场出题（给跪了）" class="headerlink" title="面试官根据回答和简历现场出题（给跪了）"></a>面试官根据回答和简历现场出题（给跪了）</h2><ol>
+<li>Session和Cookie是什么？</li>
+<li>如何根据Session实现一个网站登录过后到另一个网站直接登录（如登录淘宝后可直接登录支付宝）</li>
+<li>Session如何存放，当增加到多台服务器之后，Session应该采取哪种解决方案去存储。</li>
+</ol>
 
       
     </div>
@@ -525,7 +526,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/C-Primer-笔记/" rel="tag"># C++ Primer 笔记</a>
+            <a href="/tags/面试/" rel="tag"># 面试</a>
           
         </div>
       
@@ -538,8 +539,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/07/30/第二章-2-5-处理类型/" rel="next" title="第二章 2.5 处理类型">
-                <i class="fa fa-chevron-left"></i> 第二章 2.5 处理类型
+              <a href="/2016/12/18/月亮代表我的心（大提琴-钢琴）/" rel="next" title="月亮代表我的心（大提琴&钢琴）">
+                <i class="fa fa-chevron-left"></i> 月亮代表我的心（大提琴&钢琴）
               </a>
             
           </div>
@@ -547,10 +548,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/08/02/大一下的课程设计：设备管理系统/" rel="prev" title="大一下的课程设计：设备管理系统">
-                大一下的课程设计：设备管理系统 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -599,8 +596,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/07/30/第二章-小结/"
-           data-title="第二章 小结" data-url="http://yoursite.com/2015/07/30/第二章-小结/">
+      <div class="ds-thread" data-thread-key="2017/03/23/蚂蚁金服电面心得/"
+           data-title="蚂蚁金服电面心得" data-url="http://yoursite.com/2017/03/23/蚂蚁金服电面心得/">
       </div>
     
   </div>
@@ -624,8 +621,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -728,6 +734,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库（答得不好）"><span class="nav-number">1.</span> <span class="nav-text">数据库（答得不好）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统（一半一半）"><span class="nav-number">2.</span> <span class="nav-text">操作系统（一半一半）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java（太久了，忘光了）"><span class="nav-number">3.</span> <span class="nav-text">Java（太久了，忘光了）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring（答得较好）"><span class="nav-number">4.</span> <span class="nav-text">Spring（答得较好）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构（不知道在说什么？？？）"><span class="nav-number">5.</span> <span class="nav-text">数据结构（不知道在说什么？？？）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算机网络（答得较好，基本都答出了）"><span class="nav-number">6.</span> <span class="nav-text">计算机网络（答得较好，基本都答出了）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目（一般）"><span class="nav-number">7.</span> <span class="nav-text">项目（一般）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面试官根据回答和简历现场出题（给跪了）"><span class="nav-number">8.</span> <span class="nav-text">面试官根据回答和简历现场出题（给跪了）</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
