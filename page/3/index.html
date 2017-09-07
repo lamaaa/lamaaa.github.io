@@ -304,6 +304,214 @@
   <section id="posts" class="posts-expand">
     
       
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/07/06/Django基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lam">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="未完的梦">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/06/Django基础/" itemprop="url">
+                  Django基础
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-06T11:13:38+08:00">
+                2016-07-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Technology/" itemprop="url" rel="index">
+                    <span itemprop="name">Technology</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Technology/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Technology/Python/Django/" itemprop="url" rel="index">
+                    <span itemprop="name">Django</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/07/06/Django基础/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/06/Django基础/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="1-创建新的Django项目"><a href="#1-创建新的Django项目" class="headerlink" title="1. 创建新的Django项目"></a>1. 创建新的Django项目</h1><p>1.<code>python django-admin.py startproject &lt;name&gt;</code>来创建项目，这里的<code>&lt;name&gt;</code>是你希望的项目名字。</p>
+<p>这个命令运行<code>django-admin</code>脚本，创建了一个叫做<code>&lt;name&gt;</code>的新Django项目。<br>在<name>这个目录里，项目自动创建了两个项目：</name></p>
+<ul>
+<li>一个和<code>&lt;name&gt;</code>同名的目录</li>
+<li>一个叫做<code>manage.py</code>的Python脚本</li>
+</ul>
+<p>在项目根目录下名为<code>&lt;name&gt;</code>的目录下，我们会发现有4个脚本。</p>
+<ul>
+<li><code>__init__.py</code>:这是一个空的脚本，用来告诉Python解释器这个目录是一个Python包</li>
+<li><code>settings.py</code>:用来存储Django项目设置的文件</li>
+<li><code>urls.py</code>:用来存储项目里的URL模式</li>
+<li><code>wsgi.py</code>:用来帮助你开发运行服务，同时可以帮助你部署你的生产环境</li>
+</ul>
+<p>而另一个Python脚本<code>manage.py</code>是我们开发项目时经常使用的文件，它提供了一系列的Django命令，例如，它可以帮助我们运行内建的Django服务来测试和运行数据库命令。</p>
+<h1 id="2-创建新的Django应用"><a href="#2-创建新的Django应用" class="headerlink" title="2. 创建新的Django应用"></a>2. 创建新的Django应用</h1><p>1.<code>$python manage.py startapp &lt;appname&gt;</code>来创建新的应用，这里的<code>&lt;appname&gt;</code>是你的应用名字<br>这个命令在你的项目根目录里创建了一个新的名叫<code>&lt;appname&gt;</code>的目录，这里面包含5个Python的脚本</p>
+<ul>
+<li><code>__init.py__</code>:和前面说过的功能一样</li>
+<li><code>models.py</code>:一个存储你的应用中数据模型的地方</li>
+<li><code>tests.py</code>:存储你应用的测试代码</li>
+<li><code>views.py</code>:处理用户请求与响应</li>
+<li><code>admin.py</code>:在这里你可以向Django注册你的模型，它会为你创建Django的管理界面</li>
+</ul>
+<p>2.通过把新应用名字加入到<code>setting.py</code>文件的<code>INSTALLED_APPS</code>元组里来告诉Django项目添加了新的应用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">INSTALLED_APPS = (</div><div class="line">    &apos;django.contrib.admin&apos;,</div><div class="line">    &apos;django.contrib.auth&apos;,</div><div class="line">    &apos;django.contrib.contenttypes&apos;,</div><div class="line">    &apos;django.contrib.sessions&apos;,</div><div class="line">    &apos;django.contrib.messages&apos;,</div><div class="line">    &apos;django.contrib.staticfiles&apos;,</div><div class="line">    &apos;&lt;appname&gt;&apos;,</div><div class="line">)</div></pre></td></tr></table></figure></p>
+<p>3.在项目的<code>urls.py</code>文件映射应用<br>为了最小耦合，我们可以各个应用自己的<code>urls.py</code>,然后再把各个应用的urls.py放到项目目录的<code>urls.py</code>里面</p>
+<p>4.在应用目录里面创建<code>urls.py</code>文件使URL字符串指向视图<br>在这个文件里，设置我们的应用映射到URL，具体参考<a href="http://python.usyiyi.cn/django/topics/http/urls.html" target="_blank" rel="external">Django文档-URL调度器</a></p>
+<p>5.在应用的<code>view.py</code>文件里，创建的视图要确保返回一个<code>HttpResponse</code>对象，具体参考<a href="http://python.usyiyi.cn/django/topics/http/views.html" target="_blank" rel="external">Django文档-编写视图</a></p>
+<ul>
+<li>首先从<code>django.http</code>模块导入<code>HttpResponse</code>对象</li>
+<li>在<code>view.py</code>文件里每个视图对应一个单独的函数</li>
+<li>每个视图至少要带一个参数</li>
+<li>每个视图都要返回一个<code>HttpResponse</code>对象</li>
+</ul>
+<p>创建视图后，要让别人看到视图，必须用URL映射这个视图</p>
+<h1 id="3-测试你的Django项目"><a href="#3-测试你的Django项目" class="headerlink" title="3. 测试你的Django项目"></a>3. 测试你的Django项目</h1><p>1.<code>python manage.py runserver</code>来启动服务器，在浏览器输入<code>http://127.0.0.1:8000/</code>与对应的应用名字便可看到你的应用</p>
+<p><a href="http://hackerxu.com/Twd/#4-django" target="_blank" rel="external">原文:how to tango with django</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+      
+    
+      
     
       
     
@@ -1194,178 +1402,6 @@
 
       
     
-      
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/08/29/线性表/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lam">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="未完的梦">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/08/29/线性表/" itemprop="url">
-                  线性表
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-08-29T13:12:46+08:00">
-                2015-08-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Technology/" itemprop="url" rel="index">
-                    <span itemprop="name">Technology</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Technology/Data-Structures/" itemprop="url" rel="index">
-                    <span itemprop="name">Data Structures</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2015/08/29/线性表/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/29/线性表/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="线性表"><a href="#线性表" class="headerlink" title="线性表"></a>线性表</h1><p>“<strong>线性表（Linear List）</strong>”：由同类型<strong>数据元素</strong>构成<strong>有序序列</strong>的线性结构</p>
-<ul>
-<li>表中元素个数称为线性表的长度</li>
-<li>线性表没有元素时，称为空表</li>
-<li>表起始位置称表头，表结束位置称表尾</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2015/08/29/线性表/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-      
-    
   </section>
 
   
@@ -1415,7 +1451,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-count">44</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1424,7 +1460,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -1433,7 +1469,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">26</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
