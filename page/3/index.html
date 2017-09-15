@@ -313,6 +313,188 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/07/06/Django模板与静态媒体/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lam">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="未完的梦">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/06/Django模板与静态媒体/" itemprop="url">
+                  Django模板与静态媒体
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-06T17:49:17+08:00">
+                2016-07-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Technology/" itemprop="url" rel="index">
+                    <span itemprop="name">Technology</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Technology/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Technology/Python/Django/" itemprop="url" rel="index">
+                    <span itemprop="name">Django</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/07/06/Django模板与静态媒体/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/06/Django模板与静态媒体/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="1-模板"><a href="#1-模板" class="headerlink" title="1. 模板"></a>1. 模板</h1><p>1.首先，创建你所希望使用的模板并把它保存在<code>templates</code>目录里，这个目录需要被写入<code>setting.py</code>文件。你可以在模板里使用Django模板变量，然后在视图里更换这些变量。</p>
+<p>在你的Django项目里创建一个新的目录叫<code>templates</code>，接着在<code>template</code>在创建你的应用目录<code>&lt;appname&gt;</code>，而我们将在<code>&lt;appname&gt;</code>这个目录里存放关于这个应用的模板。</p>
+<p>同时，我们需要修改项目的<code>setting.py</code>文件，找到<code>TEMPLATE_DIRS</code>并把创建的<code>templates</code>目录路径加入到里面。由于硬编码不可取，于是我们采用动态路径的办法。<code>BASE_DIR</code>可以获取模块的绝对路径，<code>os.path.dirname()</code>能获取绝对路径的目录，接着利用<code>os.path.join()</code>来连接<code>BASE_DIR</code>和<code>templates</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">TEMPLATE_PATH = os.path.join(BASE_DIR, &apos;templates&apos;)</div></pre></td></tr></table></figure></p>
+<p>2.在应用的<code>views.py</code>文件里查找或创建一个新的视图<br>3.增加视图逻辑，例如你可以从数据库里获得数据<br>4.在视图里，创建一个字典对象把模板内容传递给模板引擎<br>5.使用<code>render()</code>函数来生成返回，确保引用request，然后是模板文件，最后是内容字典<br>6.如果你没有修改<code>urls.py</code>文件或者应用中的<code>urls.py</code>中的映射，你需要修改一下</p>
+<h1 id="2-静态媒体"><a href="#2-静态媒体" class="headerlink" title="2. 静态媒体"></a>2. 静态媒体</h1><p>1.把你要添加的静态文件放到<code>static</code>目录，，这个目录是你在<code>settings.py</code>中设置的<code>STATICFILES_DIR</code>元组</p>
+<p>在你的项目里面创建<code>static</code>目录，就像之前创建的<code>templates</code>目录一样，我们同样要告诉Django我们创建了<code>static</code>目录，在<code>settings.py</code>里，我们更新两个变量<code>STATIC_URL</code>和<code>STATICFILES_DIRS</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">STATIC_PATH = os.path.join(BASE_DIR,&apos;static&apos;)</div><div class="line"></div><div class="line">STATIC_URL = &apos;/static/&apos; # You may find this is already defined as such.</div><div class="line"></div><div class="line">STATICFILES_DIRS = (</div><div class="line">    STATIC_PATH,</div><div class="line">)</div></pre></td></tr></table></figure></p>
+<p><code>STATIC_URL</code>定义了web服务链接媒体的URL地址,<code>STATICFILES_DIRS</code>允许你定义新的<code>static</code>目录</p>
+<p>2.在模板中添加静态媒体引用，例如一个HTML网页的图片用<code>&lt;img /&gt;</code>标签<br>3.记得用{\% load staticfiles \%}和{\% static “filename” %}在模板中设置静态文件。(记得去掉%前面的\)</p>
+<p><a href="http://hackerxu.com/Twd/#5" target="_blank" rel="external">原文:how to tango with django</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+      
+    
+      
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/07/06/Django基础/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1226,182 +1408,6 @@
 
       
     
-      
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/08/31/堆栈/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lam">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="未完的梦">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/08/31/堆栈/" itemprop="url">
-                  堆栈
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-08-31T16:18:58+08:00">
-                2015-08-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Technology/" itemprop="url" rel="index">
-                    <span itemprop="name">Technology</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Technology/Data-Structures/" itemprop="url" rel="index">
-                    <span itemprop="name">Data Structures</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2015/08/31/堆栈/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/31/堆栈/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="堆栈"><a href="#堆栈" class="headerlink" title="堆栈"></a>堆栈</h1><blockquote>
-<p><strong>堆栈（Stack）：</strong> 具有一定操作约束的线性表</p>
-</blockquote>
-<ul>
-<li>只在一端（栈顶，Top）做插入、删除</li>
-<li>插入数据： 入栈（Push）</li>
-<li>删除数据： 出栈（Pop）</li>
-<li>后入先出： Last In First Out（LIFO）</li>
-</ul>
-<h2 id="堆栈的抽象数据类型描述"><a href="#堆栈的抽象数据类型描述" class="headerlink" title="堆栈的抽象数据类型描述"></a>堆栈的抽象数据类型描述</h2><p><strong>类型名称:</strong> 堆栈（Stack）<br><strong>数据对象集：</strong>一个有0个或多个元素的有穷线性表。<br><strong>操作集：</strong>长度为MaxSize的堆栈S ∈ Stack，堆栈元素item  ∈ ElementType<br>1、Stack CreateStack( int MaxSize )： 生成空堆栈，其最大长度为MaxSize；<br>2、int IsFull( Stack S, int MaxSize )：判断堆栈S是否已满；<br>3、void Push( Stack S, ElementType item )：将元素item压入堆栈；<br>4、int IsEmpty ( Stack S )：判断堆栈S是否为空；<br>5、ElementType Pop( Stack S )：删除并返回栈顶元素；</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2015/08/31/堆栈/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-      
-    
   </section>
 
   
@@ -1451,7 +1457,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-count">45</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1469,7 +1475,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

@@ -304,6 +304,190 @@
   <section id="posts" class="posts-expand">
     
       
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/27/数据库学习笔记二/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lam">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="未完的梦">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/27/数据库学习笔记二/" itemprop="url">
+                  数据库学习笔记二（数据库设计与E-R模型）
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-27T16:39:42+08:00">
+                2016-11-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Technology/" itemprop="url" rel="index">
+                    <span itemprop="name">Technology</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Technology/Database/" itemprop="url" rel="index">
+                    <span itemprop="name">Database</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/11/27/数据库学习笔记二/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/27/数据库学习笔记二/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <ol>
+<li>参与联系集的实体集的数目成为联系集的度（degree）。</li>
+<li>E-R模型中的属性可以按照如下的属性类型来进行划。<ul>
+<li><strong>简单</strong>和<strong>复合</strong>：简单指的是不能划分为更小的部分。复合指的是可以再划分的部分。</li>
+<li><strong>单值</strong>和<strong>多值</strong>：</li>
+<li><strong>派生</strong>：这类属性的值可以从别的相关属性或实体派生出来。派生属性的值不存储，而是在需要时计算出来</li>
+<li>当实体在某个属性上没有值时使用<strong>空</strong>值。空值可以表示“不适用”，即该实体的这个属性不存在值。或者用来表示属性值未知。未知的值可以是缺失的，或不知道的。</li>
+</ul>
+</li>
+<li><strong>映射基数</strong>，或基数比率，表示一个实体通过一个联系集能关联到的实体的个数。<ul>
+<li>一对一。A中的一个实体至多与B中的一个实体相关联，并且B中的一个实体也至多与A中的一个实体相关联</li>
+<li>一对多。A中的一个实体可以与B中的任意数目实体相关联，而B中的一个实体至多与A中的一个实体A相关联</li>
+<li>多对一。A中的一个实体至多可以与B中的一个实体相关联。而B中的一个实体可以与A中的任意数目实体相关联</li>
+<li>多对多。A中的一个实体可以与B中的任意数目的实体相关联。而B中的一个实体也可以与A中的任意数目的实体相关联</li>
+</ul>
+</li>
+<li><strong>参与约束</strong>，如果实体集E的每个实体都参与到联系集R的至少一个联系中，实体集E在联系集R中的参与称为<strong>全部</strong>的，如果实体集E只有部分实体参与到R的联系中，实体集E到联系集R的参与称为是<strong>部分</strong>的。</li>
+<li><strong>弱实体集</strong>，没有足够的属性以形成主码的实体集称为弱实体集，有主码的实体集称为<strong>强实体集</strong>。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/11/27/数据库学习笔记二/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+      
+    
+      
     
       
       
@@ -1391,188 +1575,6 @@
 
       
     
-      
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/07/06/Django模板与静态媒体/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lam">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="未完的梦">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/06/Django模板与静态媒体/" itemprop="url">
-                  Django模板与静态媒体
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-06T17:49:17+08:00">
-                2016-07-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Technology/" itemprop="url" rel="index">
-                    <span itemprop="name">Technology</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Technology/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Technology/Python/Django/" itemprop="url" rel="index">
-                    <span itemprop="name">Django</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/07/06/Django模板与静态媒体/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/06/Django模板与静态媒体/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="1-模板"><a href="#1-模板" class="headerlink" title="1. 模板"></a>1. 模板</h1><p>1.首先，创建你所希望使用的模板并把它保存在<code>templates</code>目录里，这个目录需要被写入<code>setting.py</code>文件。你可以在模板里使用Django模板变量，然后在视图里更换这些变量。</p>
-<p>在你的Django项目里创建一个新的目录叫<code>templates</code>，接着在<code>template</code>在创建你的应用目录<code>&lt;appname&gt;</code>，而我们将在<code>&lt;appname&gt;</code>这个目录里存放关于这个应用的模板。</p>
-<p>同时，我们需要修改项目的<code>setting.py</code>文件，找到<code>TEMPLATE_DIRS</code>并把创建的<code>templates</code>目录路径加入到里面。由于硬编码不可取，于是我们采用动态路径的办法。<code>BASE_DIR</code>可以获取模块的绝对路径，<code>os.path.dirname()</code>能获取绝对路径的目录，接着利用<code>os.path.join()</code>来连接<code>BASE_DIR</code>和<code>templates</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">TEMPLATE_PATH = os.path.join(BASE_DIR, &apos;templates&apos;)</div></pre></td></tr></table></figure></p>
-<p>2.在应用的<code>views.py</code>文件里查找或创建一个新的视图<br>3.增加视图逻辑，例如你可以从数据库里获得数据<br>4.在视图里，创建一个字典对象把模板内容传递给模板引擎<br>5.使用<code>render()</code>函数来生成返回，确保引用request，然后是模板文件，最后是内容字典<br>6.如果你没有修改<code>urls.py</code>文件或者应用中的<code>urls.py</code>中的映射，你需要修改一下</p>
-<h1 id="2-静态媒体"><a href="#2-静态媒体" class="headerlink" title="2. 静态媒体"></a>2. 静态媒体</h1><p>1.把你要添加的静态文件放到<code>static</code>目录，，这个目录是你在<code>settings.py</code>中设置的<code>STATICFILES_DIR</code>元组</p>
-<p>在你的项目里面创建<code>static</code>目录，就像之前创建的<code>templates</code>目录一样，我们同样要告诉Django我们创建了<code>static</code>目录，在<code>settings.py</code>里，我们更新两个变量<code>STATIC_URL</code>和<code>STATICFILES_DIRS</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">STATIC_PATH = os.path.join(BASE_DIR,&apos;static&apos;)</div><div class="line"></div><div class="line">STATIC_URL = &apos;/static/&apos; # You may find this is already defined as such.</div><div class="line"></div><div class="line">STATICFILES_DIRS = (</div><div class="line">    STATIC_PATH,</div><div class="line">)</div></pre></td></tr></table></figure></p>
-<p><code>STATIC_URL</code>定义了web服务链接媒体的URL地址,<code>STATICFILES_DIRS</code>允许你定义新的<code>static</code>目录</p>
-<p>2.在模板中添加静态媒体引用，例如一个HTML网页的图片用<code>&lt;img /&gt;</code>标签<br>3.记得用{\% load staticfiles \%}和{\% static “filename” %}在模板中设置静态文件。(记得去掉%前面的\)</p>
-<p><a href="http://hackerxu.com/Twd/#5" target="_blank" rel="external">原文:how to tango with django</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-      
-    
   </section>
 
   
@@ -1622,7 +1624,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-count">45</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1640,7 +1642,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
